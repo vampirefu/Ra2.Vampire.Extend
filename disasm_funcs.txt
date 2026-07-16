@@ -1,0 +1,224 @@
+
+============================================================
+Function: 0x50b6f0 (called before spy check) (0050B6F0 - 0050B780)
+============================================================
+  0050B6F0: a1 38 b2 a8 00       mov      eax, dword ptr [0xa8b238]
+  0050B6F5: 85 c0                test     eax, eax
+  0050B6F7: 75 1d                jne      0x50b716
+  0050B6F9: 8a 81 ec 01 00 00    mov      al, byte ptr [ecx + 0x1ec]
+  0050B6FF: 84 c0                test     al, al
+  0050B701: 75 0d                jne      0x50b710
+  0050B703: 8a 81 ed 01 00 00    mov      al, byte ptr [ecx + 0x1ed]
+  0050B709: 84 c0                test     al, al
+  0050B70B: 75 03                jne      0x50b710
+  0050B70D: 33 c0                xor      eax, eax
+  0050B70F: c3                   ret      
+  0050B710: b8 01 00 00 00       mov      eax, 1
+  0050B715: c3                   ret      
+  0050B716: 8b 15 4c 3d a8 00    mov      edx, dword ptr [0xa83d4c]
+  0050B71C: 33 c0                xor      eax, eax
+  0050B71E: 3b ca                cmp      ecx, edx
+  0050B720: 0f 94 c0             sete     al
+  0050B723: c3                   ret      
+  0050B724: 90                   nop      
+  0050B725: 90                   nop      
+  0050B726: 90                   nop      
+  0050B727: 90                   nop      
+  0050B728: 90                   nop      
+  0050B729: 90                   nop      
+  0050B72A: 90                   nop      
+  0050B72B: 90                   nop      
+  0050B72C: 90                   nop      
+  0050B72D: 90                   nop      
+  0050B72E: 90                   nop      
+  0050B72F: 90                   nop      
+  0050B730: a1 38 b2 a8 00       mov      eax, dword ptr [0xa8b238]
+  0050B735: 85 c0                test     eax, eax
+  0050B737: 8a 81 ec 01 00 00    mov      al, byte ptr [ecx + 0x1ec]
+  0050B73D: 75 13                jne      0x50b752
+  0050B73F: 84 c0                test     al, al
+  0050B741: 75 0d                jne      0x50b750
+  0050B743: 8a 81 ed 01 00 00    mov      al, byte ptr [ecx + 0x1ed]
+  0050B749: 84 c0                test     al, al
+  0050B74B: 75 03                jne      0x50b750
+  0050B74D: 32 c0                xor      al, al
+  0050B74F: c3                   ret      
+  0050B750: b0 01                mov      al, 1
+  0050B752: c3                   ret      
+  0050B753: 90                   nop      
+  0050B754: 90                   nop      
+  0050B755: 90                   nop      
+  0050B756: 90                   nop      
+  0050B757: 90                   nop      
+  0050B758: 90                   nop      
+  0050B759: 90                   nop      
+  0050B75A: 90                   nop      
+  0050B75B: 90                   nop      
+  0050B75C: 90                   nop      
+  0050B75D: 90                   nop      
+  0050B75E: 90                   nop      
+  0050B75F: 90                   nop      
+  0050B760: a1 38 b2 a8 00       mov      eax, dword ptr [0xa8b238]
+  0050B765: 83 ec 08             sub      esp, 8
+  0050B768: 85 c0                test     eax, eax
+  0050B76A: 53                   push     ebx
+  0050B76B: 55                   push     ebp
+  0050B76C: 56                   push     esi
+  0050B76D: 57                   push     edi
+  0050B76E: 8b f9                mov      edi, ecx
+  0050B770: 75 0c                jne      0x50b77e
+  0050B772: 5f                   pop      edi
+  0050B773: 5e                   pop      esi
+  0050B774: 5d                   pop      ebp
+  0050B775: b0 01                mov      al, 1
+  0050B777: 5b                   pop      ebx
+  0050B778: 83 c4 08             add      esp, 8
+  0050B77B: c2 08 00             ret      8
+
+============================================================
+Function: 0x4dded0 (base MouseOverObject) (004DDED0 - 004DDF60)
+============================================================
+  004DDED0: 83 ec 18             sub      esp, 0x18
+  004DDED3: 8b 44 24 20          mov      eax, dword ptr [esp + 0x20]
+  004DDED7: 53                   push     ebx
+  004DDED8: 56                   push     esi
+  004DDED9: 8b 74 24 24          mov      esi, dword ptr [esp + 0x24]
+  004DDEDD: 57                   push     edi
+  004DDEDE: 50                   push     eax
+  004DDEDF: 8b f9                mov      edi, ecx
+  004DDEE1: 56                   push     esi
+  004DDEE2: e8 d9 1f 22 00       call     0x6ffec0
+  004DDEE7: 8b 16                mov      edx, dword ptr [esi]
+  004DDEE9: 8b d8                mov      ebx, eax
+  004DDEEB: 8d 44 24 18          lea      eax, [esp + 0x18]
+  004DDEEF: 8b ce                mov      ecx, esi
+  004DDEF1: 50                   push     eax
+  004DDEF2: ff 52 48             call     dword ptr [edx + 0x48]
+  004DDEF5: 8b 08                mov      ecx, dword ptr [eax]
+  004DDEF7: 89 4c 24 0c          mov      dword ptr [esp + 0xc], ecx
+  004DDEFB: 8d 4c 24 0c          lea      ecx, [esp + 0xc]
+  004DDEFF: 8b 50 04             mov      edx, dword ptr [eax + 4]
+  004DDF02: 51                   push     ecx
+  004DDF03: 89 54 24 14          mov      dword ptr [esp + 0x14], edx
+  004DDF07: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  004DDF0C: 8b 40 08             mov      eax, dword ptr [eax + 8]
+  004DDF0F: 89 44 24 18          mov      dword ptr [esp + 0x18], eax
+  004DDF13: e8 68 a1 09 00       call     0x578080
+  004DDF18: 8d 54 24 0c          lea      edx, [esp + 0xc]
+  004DDF1C: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  004DDF21: 52                   push     edx
+  004DDF22: 89 44 24 18          mov      dword ptr [esp + 0x18], eax
+  004DDF26: e8 05 78 08 00       call     0x565730
+  004DDF2B: 8b 88 40 01 00 00    mov      ecx, dword ptr [eax + 0x140]
+  004DDF31: f6 c5 01             test     ch, 1
+  004DDF34: 74 0f                je       0x4ddf45
+  004DDF36: a1 f4 3d 8b 00       mov      eax, dword ptr [0x8b3df4]
+  004DDF3B: 8b 4c 24 14          mov      ecx, dword ptr [esp + 0x14]
+  004DDF3F: 03 c8                add      ecx, eax
+  004DDF41: 89 4c 24 14          mov      dword ptr [esp + 0x14], ecx
+  004DDF45: 8d 4c 24 0c          lea      ecx, [esp + 0xc]
+  004DDF49: 51                   push     ecx
+  004DDF4A: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  004DDF4F: e8 0c 84 0a 00       call     0x586360
+  004DDF54: 84 c0                test     al, al
+  004DDF56: 74 2d                je       0x4ddf85
+  004DDF58: 85 db                test     ebx, ebx
+  004DDF5A: 74 29                je       0x4ddf85
+
+============================================================
+Function: 0x4f9a90 (IsAlliedWith?) (004F9A90 - 004F9AF0)
+============================================================
+  004F9A90: 56                   push     esi
+  004F9A91: 8b f1                mov      esi, ecx
+  004F9A93: 8b 4c 24 08          mov      ecx, dword ptr [esp + 8]
+  004F9A97: 85 c9                test     ecx, ecx
+  004F9A99: 74 40                je       0x4f9adb
+  004F9A9B: 8b 01                mov      eax, dword ptr [ecx]
+  004F9A9D: ff 50 3c             call     dword ptr [eax + 0x3c]
+  004F9AA0: 85 c0                test     eax, eax
+  004F9AA2: 74 37                je       0x4f9adb
+  004F9AA4: 3b c6                cmp      eax, esi
+  004F9AA6: 75 06                jne      0x4f9aae
+  004F9AA8: b0 01                mov      al, 1
+  004F9AAA: 5e                   pop      esi
+  004F9AAB: c2 04 00             ret      4
+  004F9AAE: 8b 40 30             mov      eax, dword ptr [eax + 0x30]
+  004F9AB1: 8b 4e 30             mov      ecx, dword ptr [esi + 0x30]
+  004F9AB4: 3b c1                cmp      eax, ecx
+  004F9AB6: 75 06                jne      0x4f9abe
+  004F9AB8: b0 01                mov      al, 1
+  004F9ABA: 5e                   pop      esi
+  004F9ABB: c2 04 00             ret      4
+  004F9ABE: 83 f8 ff             cmp      eax, -1
+  004F9AC1: 74 18                je       0x4f9adb
+  004F9AC3: ba 01 00 00 00       mov      edx, 1
+  004F9AC8: 8b c8                mov      ecx, eax
+  004F9ACA: 8b 86 88 57 00 00    mov      eax, dword ptr [esi + 0x5788]
+  004F9AD0: 5e                   pop      esi
+  004F9AD1: d3 e2                shl      edx, cl
+  004F9AD3: 85 c2                test     edx, eax
+  004F9AD5: 0f 95 c0             setne    al
+  004F9AD8: c2 04 00             ret      4
+  004F9ADB: 32 c0                xor      al, al
+  004F9ADD: 5e                   pop      esi
+  004F9ADE: c2 04 00             ret      4
+  004F9AE1: 90                   nop      
+  004F9AE2: 90                   nop      
+  004F9AE3: 90                   nop      
+  004F9AE4: 90                   nop      
+  004F9AE5: 90                   nop      
+  004F9AE6: 90                   nop      
+  004F9AE7: 90                   nop      
+  004F9AE8: 90                   nop      
+  004F9AE9: 90                   nop      
+  004F9AEA: 90                   nop      
+  004F9AEB: 90                   nop      
+  004F9AEC: 90                   nop      
+  004F9AED: 90                   nop      
+  004F9AEE: 90                   nop      
+  004F9AEF: 90                   nop      
+
+============================================================
+Function: 0x6f3970 (006F3970 - 006F39E0)
+============================================================
+  006F3970: 53                   push     ebx
+  006F3971: 8b 5c 24 08          mov      ebx, dword ptr [esp + 8]
+  006F3975: 56                   push     esi
+  006F3976: 57                   push     edi
+  006F3977: 33 ff                xor      edi, edi
+  006F3979: 83 fb ff             cmp      ebx, -1
+  006F397C: 8b f1                mov      esi, ecx
+  006F397E: 0f 85 ff 00 00 00    jne      0x6f3a83
+  006F3984: 8b 06                mov      eax, dword ptr [esi]
+  006F3986: 33 db                xor      ebx, ebx
+  006F3988: ff 90 84 00 00 00    call     dword ptr [eax + 0x84]
+  006F398E: 8b c8                mov      ecx, eax
+  006F3990: e8 eb 3e 02 00       call     0x717880
+  006F3995: 84 c0                test     al, al
+  006F3997: 74 5b                je       0x6f39f4
+  006F3999: 8b 16                mov      edx, dword ptr [esi]
+  006F399B: 8b ce                mov      ecx, esi
+  006F399D: ff 92 84 00 00 00    call     dword ptr [edx + 0x84]
+  006F39A3: 8a 88 d5 0c 00 00    mov      cl, byte ptr [eax + 0xcd5]
+  006F39A9: 84 c9                test     cl, cl
+  006F39AB: 75 47                jne      0x6f39f4
+  006F39AD: 8b 8e 38 01 00 00    mov      ecx, dword ptr [esi + 0x138]
+  006F39B3: 8b 06                mov      eax, dword ptr [esi]
+  006F39B5: 51                   push     ecx
+  006F39B6: 8b ce                mov      ecx, esi
+  006F39B8: ff 90 f8 03 00 00    call     dword ptr [eax + 0x3f8]
+  006F39BE: 85 c0                test     eax, eax
+  006F39C0: 75 08                jne      0x6f39ca
+  006F39C2: 5f                   pop      edi
+  006F39C3: 5e                   pop      esi
+  006F39C4: 33 c0                xor      eax, eax
+  006F39C6: 5b                   pop      ebx
+  006F39C7: c2 04 00             ret      4
+  006F39CA: 8b 00                mov      eax, dword ptr [eax]
+  006F39CC: 85 c0                test     eax, eax
+  006F39CE: 75 06                jne      0x6f39d6
+  006F39D0: 5f                   pop      edi
+  006F39D1: 5e                   pop      esi
+  006F39D2: 5b                   pop      ebx
+  006F39D3: c2 04 00             ret      4
+  006F39D6: 8b b8 a4 00 00 00    mov      edi, dword ptr [eax + 0xa4]

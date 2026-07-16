@@ -1,0 +1,284 @@
+
+============================================================
+BuildingClass::InfiltratedBy FULL (0x004571E0 - 0x004575B0)
+============================================================
+  004571E0: 51                       push     ecx
+  004571E1: 55                       push     ebp
+  004571E2: 8b e9                    mov      ebp, ecx
+  004571E4: 57                       push     edi
+  004571E5: 8b 7c 24 10              mov      edi, dword ptr [esp + 0x10]
+  004571E9: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  004571EF: c6 44 24 0b 00           mov      byte ptr [esp + 0xb], 0
+  004571F4: 3b cf                    cmp      ecx, edi
+  004571F6: 0f 84 a3 03 00 00        je       0x45759f
+  004571FC: 53                       push     ebx
+  004571FD: 56                       push     esi
+  004571FE: e8 ed 44 0b 00           call     0x50b6f0
+  00457203: 84 c0                    test     al, al
+  00457205: bb 01 00 00 00           mov      ebx, 1
+  0045720A: 75 0b                    jne      0x457217
+  0045720C: 8b cf                    mov      ecx, edi
+  0045720E: e8 dd 44 0b 00           call     0x50b6f0
+  00457213: 84 c0                    test     al, al
+  00457215: 74 25                    je       0x45723c
+  00457217: 8b 45 00                 mov      eax, dword ptr [ebp]
+  0045721A: 8d 4c 24 18              lea      ecx, [esp + 0x18]
+  0045721E: 51                       push     ecx
+  0045721F: 8b cd                    mov      ecx, ebp
+  00457221: ff 90 b8 01 00 00        call     dword ptr [eax + 0x1b8]
+  00457227: 8b 10                    mov      edx, dword ptr [eax]
+  00457229: b9 09 00 00 00           mov      ecx, 9
+  0045722E: 52                       push     edx
+  0045722F: e8 3c 88 20 00           call     0x65fa70
+  00457234: 84 c0                    test     al, al
+  00457236: 74 04                    je       0x45723c
+  00457238: 88 5c 24 13              mov      byte ptr [esp + 0x13], bl
+  0045723C: 8b 8d 20 05 00 00        mov      ecx, dword ptr [ebp + 0x520]
+  00457242: 8a 81 a4 16 00 00        mov      al, byte ptr [ecx + 0x16a4]
+  00457248: 84 c0                    test     al, al
+  0045724A: 74 7f                    je       0x4572cb
+  0045724C: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  00457252: e8 b9 4a 0b 00           call     0x50bd10
+  00457257: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  0045725D: e8 8e 44 0b 00           call     0x50b6f0
+  00457262: 84 c0                    test     al, al
+  00457264: 74 27                    je       0x45728d
+  00457266: 8b 85 1c 02 00 00        mov      eax, dword ptr [ebp + 0x21c]
+  0045726C: 8a 88 7a 57 00 00        mov      cl, byte ptr [eax + 0x577a]
+  00457272: 84 c9                    test     cl, cl
+  00457274: 75 17                    jne      0x45728d
+  00457276: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  0045727A: 84 c0                    test     al, al
+  0045727C: 74 0f                    je       0x45728d
+  0045727E: 6a ff                    push     -1
+  00457280: 83 ca ff                 or       edx, 0xffffffff
+  00457283: b9 e4 91 81 00           mov      ecx, 0x8191e4
+  00457288: e8 73 b4 2f 00           call     0x752700
+  0045728D: 8b cf                    mov      ecx, edi
+  0045728F: e8 5c 44 0b 00           call     0x50b6f0
+  00457294: 84 c0                    test     al, al
+  00457296: 0f 84 f4 02 00 00        je       0x457590
+  0045729C: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  004572A2: 8a 81 7a 57 00 00        mov      al, byte ptr [ecx + 0x577a]
+  004572A8: 84 c0                    test     al, al
+  004572AA: 0f 85 e0 02 00 00        jne      0x457590
+  004572B0: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  004572B4: 84 c0                    test     al, al
+  004572B6: 0f 84 d4 02 00 00        je       0x457590
+  004572BC: 6a ff                    push     -1
+  004572BE: 83 ca ff                 or       edx, 0xffffffff
+  004572C1: b9 c4 91 81 00           mov      ecx, 0x8191c4
+  004572C6: e9 c0 02 00 00           jmp      0x45758b
+  004572CB: 8b 81 e0 0e 00 00        mov      eax, dword ptr [ecx + 0xee0]
+  004572D1: 8b 15 e0 71 88 00        mov      edx, dword ptr [0x8871e0]
+  004572D7: 85 c0                    test     eax, eax
+  004572D9: 7e 71                    jle      0x45734c
+  004572DB: 8b 82 64 0d 00 00        mov      eax, dword ptr [edx + 0xd64]
+  004572E1: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  004572E7: 50                       push     eax
+  004572E8: e8 a3 49 0b 00           call     0x50bc90
+  004572ED: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  004572F3: e8 f8 43 0b 00           call     0x50b6f0
+  004572F8: 84 c0                    test     al, al
+  004572FA: 74 17                    je       0x457313
+  004572FC: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  00457300: 84 c0                    test     al, al
+  00457302: 74 0f                    je       0x457313
+  00457304: 6a ff                    push     -1
+  00457306: 83 ca ff                 or       edx, 0xffffffff
+  00457309: b9 b0 91 81 00           mov      ecx, 0x8191b0
+  0045730E: e9 78 02 00 00           jmp      0x45758b
+  00457313: 8b cf                    mov      ecx, edi
+  00457315: e8 d6 43 0b 00           call     0x50b6f0
+  0045731A: 84 c0                    test     al, al
+  0045731C: 0f 84 6e 02 00 00        je       0x457590
+  00457322: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  00457326: 84 c0                    test     al, al
+  00457328: 0f 84 62 02 00 00        je       0x457590
+  0045732E: 6a ff                    push     -1
+  00457330: 83 ca ff                 or       edx, 0xffffffff
+  00457333: b9 98 91 81 00           mov      ecx, 0x819198
+  00457338: e8 c3 b3 2f 00           call     0x752700
+  0045733D: 6a ff                    push     -1
+  0045733F: 83 ca ff                 or       edx, 0xffffffff
+  00457342: b9 7c 91 81 00           mov      ecx, 0x81917c
+  00457347: e9 3f 02 00 00           jmp      0x45758b
+  0045734C: 8b b2 2c 09 00 00        mov      esi, dword ptr [edx + 0x92c]
+  00457352: 33 c0                    xor      eax, eax
+  00457354: 85 f6                    test     esi, esi
+  00457356: 7e 12                    jle      0x45736a
+  00457358: 8b 92 20 09 00 00        mov      edx, dword ptr [edx + 0x920]
+  0045735E: 39 0a                    cmp      dword ptr [edx], ecx
+  00457360: 74 64                    je       0x4573c6
+  00457362: 40                       inc      eax
+  00457363: 83 c2 04                 add      edx, 4
+  00457366: 3b c6                    cmp      eax, esi
+  00457368: 7c f4                    jl       0x45735e
+  0045736A: 8b 81 f0 16 00 00        mov      eax, dword ptr [ecx + 0x16f0]
+  00457370: 83 f8 ff                 cmp      eax, -1
+  00457373: 0f 84 9b 00 00 00        je       0x457414
+  00457379: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  0045737F: 8b 91 58 02 00 00        mov      edx, dword ptr [ecx + 0x258]
+  00457385: 8b 0c 82                 mov      ecx, dword ptr [edx + eax*4]
+  00457388: e8 23 6d 27 00           call     0x6ce0b0
+  0045738D: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  00457393: e8 58 43 0b 00           call     0x50b6f0
+  00457398: 84 c0                    test     al, al
+  0045739A: 75 1b                    jne      0x4573b7
+  0045739C: 8b cf                    mov      ecx, edi
+  0045739E: e8 4d 43 0b 00           call     0x50b6f0
+  004573A3: 84 c0                    test     al, al
+  004573A5: 0f 84 e5 01 00 00        je       0x457590
+  004573AB: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  004573AF: 84 c0                    test     al, al
+  004573B1: 0f 84 d9 01 00 00        je       0x457590
+  004573B7: 6a ff                    push     -1
+  004573B9: 83 ca ff                 or       edx, 0xffffffff
+  004573BC: b9 98 91 81 00           mov      ecx, 0x819198
+  004573C1: e9 c5 01 00 00           jmp      0x45758b
+  004573C6: 8b 89 d0 06 00 00        mov      ecx, dword ptr [ecx + 0x6d0]
+  004573CC: 85 c9                    test     ecx, ecx
+  004573CE: 75 08                    jne      0x4573d8
+  004573D0: 88 9f be 02 00 00        mov      byte ptr [edi + 0x2be], bl
+  004573D6: eb 12                    jmp      0x4573ea
+  004573D8: 3b cb                    cmp      ecx, ebx
+  004573DA: 75 08                    jne      0x4573e4
+  004573DC: 88 9f bd 02 00 00        mov      byte ptr [edi + 0x2bd], bl
+  004573E2: eb 06                    jmp      0x4573ea
+  004573E4: 88 9f bc 02 00 00        mov      byte ptr [edi + 0x2bc], bl
+  004573EA: 88 9f fc 01 00 00        mov      byte ptr [edi + 0x1fc], bl
+  004573F0: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  004573F6: e8 f5 42 0b 00           call     0x50b6f0
+  004573FB: 84 c0                    test     al, al
+  004573FD: 0f 84 fb 00 00 00        je       0x4574fe
+  00457403: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  00457407: 84 c0                    test     al, al
+  00457409: 0f 84 ef 00 00 00        je       0x4574fe
+  0045740F: e9 db 00 00 00           jmp      0x4574ef
+  00457414: 8b 81 00 08 00 00        mov      eax, dword ptr [ecx + 0x800]
+  0045741A: 85 c0                    test     eax, eax
+  0045741C: 0f 8e 8e 00 00 00        jle      0x4574b0
+  00457422: 8b 85 1c 02 00 00        mov      eax, dword ptr [ebp + 0x21c]
+  00457428: 83 c0 24                 add      eax, 0x24
+  0045742B: 50                       push     eax
+  0045742C: 8b 08                    mov      ecx, dword ptr [eax]
+  0045742E: ff 51 18                 call     dword ptr [ecx + 0x18]
+  00457431: 8b 15 e0 71 88 00        mov      edx, dword ptr [0x8871e0]
+  00457437: 89 44 24 18              mov      dword ptr [esp + 0x18], eax
+  0045743B: db 44 24 18              fild     dword ptr [esp + 0x18]
+  0045743F: d8 8a 68 0d 00 00        fmul     dword ptr [edx + 0xd68]
+  00457445: e8 b6 ea 36 00           call     0x7c5f00
+  0045744A: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  00457450: 8b f0                    mov      esi, eax
+  00457452: 56                       push     esi
+  00457453: e8 38 23 0a 00           call     0x4f9790
+  00457458: 56                       push     esi
+  00457459: 8b cf                    mov      ecx, edi
+  0045745B: e8 f0 24 0a 00           call     0x4f9950
+  00457460: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  00457466: e8 85 42 0b 00           call     0x50b6f0
+  0045746B: 84 c0                    test     al, al
+  0045746D: 74 17                    je       0x457486
+  0045746F: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  00457473: 84 c0                    test     al, al
+  00457475: 74 0f                    je       0x457486
+  00457477: 6a ff                    push     -1
+  00457479: 83 ca ff                 or       edx, 0xffffffff
+  0045747C: b9 6c 91 81 00           mov      ecx, 0x81916c
+  00457481: e8 7a b2 2f 00           call     0x752700
+  00457486: 8b cf                    mov      ecx, edi
+  00457488: e8 63 42 0b 00           call     0x50b6f0
+  0045748D: 84 c0                    test     al, al
+  0045748F: 0f 84 fb 00 00 00        je       0x457590
+  00457495: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  00457499: 84 c0                    test     al, al
+  0045749B: 0f 84 ef 00 00 00        je       0x457590
+  004574A1: 6a ff                    push     -1
+  004574A3: 83 ca ff                 or       edx, 0xffffffff
+  004574A6: b9 50 91 81 00           mov      ecx, 0x819150
+  004574AB: e9 db 00 00 00           jmp      0x45758b
+  004574B0: 8b 89 b8 0e 00 00        mov      ecx, dword ptr [ecx + 0xeb8]
+  004574B6: 83 f9 28                 cmp      ecx, 0x28
+  004574B9: 75 5c                    jne      0x457517
+  004574BB: 8b cf                    mov      ecx, edi
+  004574BD: 88 9f c0 02 00 00        mov      byte ptr [edi + 0x2c0], bl
+  004574C3: 88 9f fc 01 00 00        mov      byte ptr [edi + 0x1fc], bl
+  004574C9: e8 22 42 0b 00           call     0x50b6f0
+  004574CE: 84 c0                    test     al, al
+  004574D0: 74 06                    je       0x4574d8
+  004574D2: 88 1d 8e 4b 88 00        mov      byte ptr [0x884b8e], bl
+  004574D8: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  004574DE: e8 0d 42 0b 00           call     0x50b6f0
+  004574E3: 84 c0                    test     al, al
+  004574E5: 74 17                    je       0x4574fe
+  004574E7: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  004574EB: 84 c0                    test     al, al
+  004574ED: 74 0f                    je       0x4574fe
+  004574EF: 6a ff                    push     -1
+  004574F1: 83 ca ff                 or       edx, 0xffffffff
+  004574F4: b9 38 91 81 00           mov      ecx, 0x819138
+  004574F9: e8 02 b2 2f 00           call     0x752700
+  004574FE: 8b cf                    mov      ecx, edi
+  00457500: e8 eb 41 0b 00           call     0x50b6f0
+  00457505: 84 c0                    test     al, al
+  00457507: 0f 84 83 00 00 00        je       0x457590
+  0045750D: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  00457511: 84 c0                    test     al, al
+  00457513: 74 7b                    je       0x457590
+  00457515: eb 5b                    jmp      0x457572
+  00457517: 83 f9 10                 cmp      ecx, 0x10
+  0045751A: 75 74                    jne      0x457590
+  0045751C: 8b cf                    mov      ecx, edi
+  0045751E: 88 9f bf 02 00 00        mov      byte ptr [edi + 0x2bf], bl
+  00457524: 88 9f fc 01 00 00        mov      byte ptr [edi + 0x1fc], bl
+  0045752A: e8 c1 41 0b 00           call     0x50b6f0
+  0045752F: 84 c0                    test     al, al
+  00457531: 74 06                    je       0x457539
+  00457533: 88 1d 8e 4b 88 00        mov      byte ptr [0x884b8e], bl
+  00457539: 8b 8d 1c 02 00 00        mov      ecx, dword ptr [ebp + 0x21c]
+  0045753F: e8 ac 41 0b 00           call     0x50b6f0
+  00457544: 84 c0                    test     al, al
+  00457546: 74 17                    je       0x45755f
+  00457548: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  0045754C: 84 c0                    test     al, al
+  0045754E: 74 0f                    je       0x45755f
+  00457550: 6a ff                    push     -1
+  00457552: 83 ca ff                 or       edx, 0xffffffff
+  00457555: b9 38 91 81 00           mov      ecx, 0x819138
+  0045755A: e8 a1 b1 2f 00           call     0x752700
+  0045755F: 8b cf                    mov      ecx, edi
+  00457561: e8 8a 41 0b 00           call     0x50b6f0
+  00457566: 84 c0                    test     al, al
+  00457568: 74 26                    je       0x457590
+  0045756A: 8a 44 24 13              mov      al, byte ptr [esp + 0x13]
+  0045756E: 84 c0                    test     al, al
+  00457570: 74 1e                    je       0x457590
+  00457572: 6a ff                    push     -1
+  00457574: 83 ca ff                 or       edx, 0xffffffff
+  00457577: b9 98 91 81 00           mov      ecx, 0x819198
+  0045757C: e8 7f b1 2f 00           call     0x752700
+  00457581: 6a ff                    push     -1
+  00457583: 83 ca ff                 or       edx, 0xffffffff
+  00457586: b9 1c 91 81 00           mov      ecx, 0x81911c
+  0045758B: e8 70 b1 2f 00           call     0x752700
+  00457590: 8b 45 00                 mov      eax, dword ptr [ebp]
+  00457593: 6a 02                    push     2
+  00457595: 8b cd                    mov      ecx, ebp
+  00457597: ff 90 24 01 00 00        call     dword ptr [eax + 0x124]
+  0045759D: 5e                       pop      esi
+  0045759E: 5b                       pop      ebx
+  0045759F: 5f                       pop      edi
+  004575A0: 5d                       pop      ebp
+  004575A1: 59                       pop      ecx
+  004575A2: c2 04 00                 ret      4
+  004575A5: 90                       nop      
+  004575A6: 90                       nop      
+  004575A7: 90                       nop      
+  004575A8: 90                       nop      
+  004575A9: 90                       nop      
+  004575AA: 90                       nop      
+  004575AB: 90                       nop      
+  004575AC: 90                       nop      
+  004575AD: 90                       nop      
+  004575AE: 90                       nop      
+  004575AF: 90                       nop      

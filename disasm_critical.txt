@@ -1,0 +1,566 @@
+
+============================================================
+Region: InfantryClass::UpdatePosition Capture entry -> infiltration gate (0x519940-0x519FF8) (00519940 - 00519FF8)
+============================================================
+  00519940: 5d                   pop      ebp
+  00519941: 5b                   pop      ebx
+  00519942: 83 c4 40             add      esp, 0x40
+  00519945: c2 04 00             ret      4
+  00519948: 8b 16                mov      edx, dword ptr [esi]
+  0051994A: 8b ce                mov      ecx, esi
+  0051994C: ff 92 84 01 00 00    call     dword ptr [edx + 0x184]
+  00519952: 83 f8 08             cmp      eax, 8
+  00519955: 74 22                je       0x519979
+  00519957: 8b 06                mov      eax, dword ptr [esi]
+  00519959: 8b ce                mov      ecx, esi
+  0051995B: ff 90 84 01 00 00    call     dword ptr [eax + 0x184]
+  00519961: 83 f8 0b             cmp      eax, 0xb
+  00519964: 74 13                je       0x519979
+  00519966: 8b 16                mov      edx, dword ptr [esi]
+  00519968: 8b ce                mov      ecx, esi
+  0051996A: ff 92 84 01 00 00    call     dword ptr [edx + 0x184]
+  00519970: 83 f8 19             cmp      eax, 0x19
+  00519973: 0f 85 5b 07 00 00    jne      0x51a0d4
+  00519979: 8b 8e a4 05 00 00    mov      ecx, dword ptr [esi + 0x5a4]
+  0051997F: 85 c9                test     ecx, ecx
+  00519981: 0f 84 90 01 00 00    je       0x519b17
+  00519987: 8a 41 14             mov      al, byte ptr [ecx + 0x14]
+  0051998A: 24 01                and      al, 1
+  0051998C: 88 44 24 13          mov      byte ptr [esp + 0x13], al
+  00519990: 0f 84 81 01 00 00    je       0x519b17
+  00519996: 8b 11                mov      edx, dword ptr [ecx]
+  00519998: ff 92 80 00 00 00    call     dword ptr [edx + 0x80]
+  0051999E: 84 c0                test     al, al
+  005199A0: 0f 84 71 01 00 00    je       0x519b17
+  005199A6: 8b be a4 05 00 00    mov      edi, dword ptr [esi + 0x5a4]
+  005199AC: 85 ff                test     edi, edi
+  005199AE: 0f 84 63 01 00 00    je       0x519b17
+  005199B4: 8b 07                mov      eax, dword ptr [edi]
+  005199B6: 8b cf                mov      ecx, edi
+  005199B8: ff 50 2c             call     dword ptr [eax + 0x2c]
+  005199BB: 83 f8 06             cmp      eax, 6
+  005199BE: 0f 85 53 01 00 00    jne      0x519b17
+  005199C4: 8b 17                mov      edx, dword ptr [edi]
+  005199C6: 8d 44 24 24          lea      eax, [esp + 0x24]
+  005199CA: 50                   push     eax
+  005199CB: 8b cf                mov      ecx, edi
+  005199CD: ff 92 b8 01 00 00    call     dword ptr [edx + 0x1b8]
+  005199D3: 8b 16                mov      edx, dword ptr [esi]
+  005199D5: 8b d8                mov      ebx, eax
+  005199D7: 8d 44 24 20          lea      eax, [esp + 0x20]
+  005199DB: 8b ce                mov      ecx, esi
+  005199DD: 50                   push     eax
+  005199DE: ff 92 b8 01 00 00    call     dword ptr [edx + 0x1b8]
+  005199E4: 66 8b 08             mov      cx, word ptr [eax]
+  005199E7: 66 3b 0b             cmp      cx, word ptr [ebx]
+  005199EA: 0f 85 89 00 00 00    jne      0x519a79
+  005199F0: 66 8b 50 02          mov      dx, word ptr [eax + 2]
+  005199F4: 66 3b 53 02          cmp      dx, word ptr [ebx + 2]
+  005199F8: 75 7f                jne      0x519a79
+  005199FA: 8b 4f 34             mov      ecx, dword ptr [edi + 0x34]
+  005199FD: 85 c9                test     ecx, ecx
+  005199FF: 74 12                je       0x519a13
+  00519A01: a1 e0 f1 a8 00       mov      eax, dword ptr [0xa8f1e0]
+  00519A06: 6a 00                push     0
+  00519A08: 6a 00                push     0
+  00519A0A: 50                   push     eax
+  00519A0B: 56                   push     esi
+  00519A0C: 6a 01                push     1
+  00519A0E: e8 8d b9 1c 00       call     0x6e53a0
+  00519A13: 8b 17                mov      edx, dword ptr [edi]
+  00519A15: 6a 00                push     0
+  00519A17: 8b cf                mov      ecx, edi
+  00519A19: ff 92 dc 00 00 00    call     dword ptr [edx + 0xdc]
+  00519A1F: 8b 8e 1c 02 00 00    mov      ecx, dword ptr [esi + 0x21c]
+  00519A25: 8b 07                mov      eax, dword ptr [edi]
+  00519A27: 6a 01                push     1
+  00519A29: 51                   push     ecx
+  00519A2A: 8b cf                mov      ecx, edi
+  00519A2C: ff 90 d4 03 00 00    call     dword ptr [eax + 0x3d4]
+  00519A32: 8b 96 c0 06 00 00    mov      edx, dword ptr [esi + 0x6c0]
+  00519A38: 8b cf                mov      ecx, edi
+  00519A3A: 8b 82 f8 0d 00 00    mov      eax, dword ptr [edx + 0xdf8]
+  00519A40: 8b 17                mov      edx, dword ptr [edi]
+  00519A42: 89 87 38 03 00 00    mov      dword ptr [edi + 0x338], eax
+  00519A48: ff 92 e0 02 00 00    call     dword ptr [edx + 0x2e0]
+  00519A4E: 8b 4e 34             mov      ecx, dword ptr [esi + 0x34]
+  00519A51: 85 c9                test     ecx, ecx
+  00519A53: 74 14                je       0x519a69
+  00519A55: e8 66 bd 1c 00       call     0x6e57c0
+  00519A5A: 84 c0                test     al, al
+  00519A5C: 74 0b                je       0x519a69
+  00519A5E: 8b 46 34             mov      eax, dword ptr [esi + 0x34]
+  00519A61: 8b cf                mov      ecx, edi
+  00519A63: 50                   push     eax
+  00519A64: e8 e7 c0 0d 00       call     0x5f5b50
+  00519A69: 8b 4e 34             mov      ecx, dword ptr [esi + 0x34]
+  00519A6C: 85 c9                test     ecx, ecx
+  00519A6E: 0f 84 b6 05 00 00    je       0x51a02a
+  00519A74: e9 9e 05 00 00       jmp      0x51a017
+  00519A79: 8b 86 74 06 00 00    mov      eax, dword ptr [esi + 0x674]
+  00519A7F: 85 c0                test     eax, eax
+  00519A81: 75 0a                jne      0x519a8d
+  00519A83: 68 03 40 00 80       push     0x80004003
+  00519A88: e8 93 2c 2c 00       call     0x7dc720
+  00519A8D: 8b 86 74 06 00 00    mov      eax, dword ptr [esi + 0x674]
+  00519A93: 8d 54 24 44          lea      edx, [esp + 0x44]
+  00519A97: 52                   push     edx
+  00519A98: 50                   push     eax
+  00519A99: 8b 08                mov      ecx, dword ptr [eax]
+  00519A9B: ff 51 14             call     dword ptr [ecx + 0x14]
+  00519A9E: 8b 08                mov      ecx, dword ptr [eax]
+  00519AA0: 8b 15 00 f2 a8 00    mov      edx, dword ptr [0xa8f200]
+  00519AA6: 8b 58 04             mov      ebx, dword ptr [eax + 4]
+  00519AA9: 8b 40 08             mov      eax, dword ptr [eax + 8]
+  00519AAC: 3b ca                cmp      ecx, edx
+  00519AAE: 75 10                jne      0x519ac0
+  00519AB0: 3b 1d 04 f2 a8 00    cmp      ebx, dword ptr [0xa8f204]
+  00519AB6: 75 08                jne      0x519ac0
+  00519AB8: 3b 05 08 f2 a8 00    cmp      eax, dword ptr [0xa8f208]
+  00519ABE: 74 3a                je       0x519afa
+  00519AC0: 8b c1                mov      eax, ecx
+  00519AC2: 8d 4c 24 24          lea      ecx, [esp + 0x24]
+  00519AC6: 99                   cdq      
+  00519AC7: 81 e2 ff 00 00 00    and      edx, 0xff
+  00519ACD: 51                   push     ecx
+  00519ACE: 03 c2                add      eax, edx
+  00519AD0: 8b ce                mov      ecx, esi
+  00519AD2: 8b f8                mov      edi, eax
+  00519AD4: 8b c3                mov      eax, ebx
+  00519AD6: 99                   cdq      
+  00519AD7: 81 e2 ff 00 00 00    and      edx, 0xff
+  00519ADD: 03 c2                add      eax, edx
+  00519ADF: 8b d8                mov      ebx, eax
+  00519AE1: 8b 06                mov      eax, dword ptr [esi]
+  00519AE3: c1 ff 08             sar      edi, 8
+  00519AE6: c1 fb 08             sar      ebx, 8
+  00519AE9: ff 90 b8 01 00 00    call     dword ptr [eax + 0x1b8]
+  00519AEF: 66 39 38             cmp      word ptr [eax], di
+  00519AF2: 75 23                jne      0x519b17
+  00519AF4: 66 39 58 02          cmp      word ptr [eax + 2], bx
+  00519AF8: 75 1d                jne      0x519b17
+  00519AFA: 8b 86 a4 05 00 00    mov      eax, dword ptr [esi + 0x5a4]
+  00519B00: 8b 16                mov      edx, dword ptr [esi]
+  00519B02: 6a 01                push     1
+  00519B04: 50                   push     eax
+  00519B05: 8b ce                mov      ecx, esi
+  00519B07: ff 92 80 04 00 00    call     dword ptr [edx + 0x480]
+  00519B0D: 5f                   pop      edi
+  00519B0E: 5e                   pop      esi
+  00519B0F: 5d                   pop      ebp
+  00519B10: 5b                   pop      ebx
+  00519B11: 83 c4 40             add      esp, 0x40
+  00519B14: c2 04 00             ret      4
+  00519B17: 8b 4c 24 14          mov      ecx, dword ptr [esp + 0x14]
+  00519B1B: e8 00 2a f6 ff       call     0x47c520
+  00519B20: 8b f8                mov      edi, eax
+  00519B22: 85 ff                test     edi, edi
+  00519B24: 0f 84 47 05 00 00    je       0x51a071
+  00519B2A: 3b be a4 05 00 00    cmp      edi, dword ptr [esi + 0x5a4]
+  00519B30: 74 0c                je       0x519b3e
+  00519B32: 3b be b4 02 00 00    cmp      edi, dword ptr [esi + 0x2b4]
+  00519B38: 0f 85 33 05 00 00    jne      0x51a071
+  00519B3E: 8b 4f 34             mov      ecx, dword ptr [edi + 0x34]
+  00519B41: 85 c9                test     ecx, ecx
+  00519B43: 74 13                je       0x519b58
+  00519B45: 8b 15 e0 f1 a8 00    mov      edx, dword ptr [0xa8f1e0]
+  00519B4B: 6a 00                push     0
+  00519B4D: 6a 00                push     0
+  00519B4F: 52                   push     edx
+  00519B50: 56                   push     esi
+  00519B51: 6a 01                push     1
+  00519B53: e8 48 b8 1c 00       call     0x6e53a0
+  00519B58: 8b 86 c0 06 00 00    mov      eax, dword ptr [esi + 0x6c0]
+  00519B5E: 8a 88 c3 0e 00 00    mov      cl, byte ptr [eax + 0xec3]
+  00519B64: 84 c9                test     cl, cl
+  00519B66: 0f 84 8c 04 00 00    je       0x519ff8
+  00519B6C: 8b 07                mov      eax, dword ptr [edi]
+  00519B6E: 8b cf                mov      ecx, edi
+  00519B70: ff 50 2c             call     dword ptr [eax + 0x2c]
+  00519B73: 83 f8 06             cmp      eax, 6
+  00519B76: 0f 85 cb 01 00 00    jne      0x519d47
+  00519B7C: 8b 8f 20 05 00 00    mov      ecx, dword ptr [edi + 0x520]
+  00519B82: 8a 81 b6 16 00 00    mov      al, byte ptr [ecx + 0x16b6]
+  00519B88: 84 c0                test     al, al
+  00519B8A: 0f 84 b7 01 00 00    je       0x519d47
+  00519B90: 8b 8e 1c 02 00 00    mov      ecx, dword ptr [esi + 0x21c]
+  00519B96: e8 55 1b ff ff       call     0x50b6f0
+  00519B9B: 84 c0                test     al, al
+  00519B9D: 74 2f                je       0x519bce
+  00519B9F: 8b 16                mov      edx, dword ptr [esi]
+  00519BA1: 8d 44 24 54          lea      eax, [esp + 0x54]
+  00519BA5: 50                   push     eax
+  00519BA6: 8b ce                mov      ecx, esi
+  00519BA8: ff 92 b8 01 00 00    call     dword ptr [edx + 0x1b8]
+  00519BAE: 8b 08                mov      ecx, dword ptr [eax]
+  00519BB0: 51                   push     ecx
+  00519BB1: b9 0e 00 00 00       mov      ecx, 0xe
+  00519BB6: e8 b5 5e 14 00       call     0x65fa70
+  00519BBB: 84 c0                test     al, al
+  00519BBD: 74 0f                je       0x519bce
+  00519BBF: 6a ff                push     -1
+  00519BC1: 83 ca ff             or       edx, 0xffffffff
+  00519BC4: b9 38 55 82 00       mov      ecx, 0x825538
+  00519BC9: e8 32 8b 23 00       call     0x752700
+  00519BCE: a1 e0 71 88 00       mov      eax, dword ptr [0x8871e0]
+  00519BD3: 83 b8 48 02 00 00 ff cmp      dword ptr [eax + 0x248], -1
+  00519BDA: 74 2b                je       0x519c07
+  00519BDC: 8d 97 9c 00 00 00    lea      edx, [edi + 0x9c]
+  00519BE2: 6a 00                push     0
+  00519BE4: 8b 0a                mov      ecx, dword ptr [edx]
+  00519BE6: 89 4c 24 3c          mov      dword ptr [esp + 0x3c], ecx
+  00519BEA: 8b 4a 04             mov      ecx, dword ptr [edx + 4]
+  00519BED: 89 4c 24 40          mov      dword ptr [esp + 0x40], ecx
+  00519BF1: 8b 52 08             mov      edx, dword ptr [edx + 8]
+  00519BF4: 89 54 24 44          mov      dword ptr [esp + 0x44], edx
+  00519BF8: 8b 88 48 02 00 00    mov      ecx, dword ptr [eax + 0x248]
+  00519BFE: 8d 54 24 3c          lea      edx, [esp + 0x3c]
+  00519C02: e8 d9 6d 23 00       call     0x7509e0
+  00519C07: c6 44 24 54 00       mov      byte ptr [esp + 0x54], 0
+  00519C0C: c7 44 24 14 fe ff ff ff mov      dword ptr [esp + 0x14], 0xfffffffe
+  00519C14: bb fe ff ff ff       mov      ebx, 0xfffffffe
+  00519C19: 8b 06                mov      eax, dword ptr [esi]
+  00519C1B: 8d 4c 24 28          lea      ecx, [esp + 0x28]
+  00519C1F: 51                   push     ecx
+  00519C20: 8b ce                mov      ecx, esi
+  00519C22: ff 90 b8 01 00 00    call     dword ptr [eax + 0x1b8]
+  00519C28: 66 8b d3             mov      dx, bx
+  00519C2B: 66 03 10             add      dx, word ptr [eax]
+  00519C2E: 66 8b 40 02          mov      ax, word ptr [eax + 2]
+  00519C32: 66 03 44 24 14       add      ax, word ptr [esp + 0x14]
+  00519C37: 66 89 54 24 18       mov      word ptr [esp + 0x18], dx
+  00519C3C: 8d 54 24 20          lea      edx, [esp + 0x20]
+  00519C40: 66 89 44 24 1a       mov      word ptr [esp + 0x1a], ax
+  00519C45: 8b 4c 24 18          mov      ecx, dword ptr [esp + 0x18]
+  00519C49: 89 4c 24 20          mov      dword ptr [esp + 0x20], ecx
+  00519C4D: 52                   push     edx
+  00519C4E: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  00519C53: e8 48 bb 04 00       call     0x5657a0
+  00519C58: 8b 68 38             mov      ebp, dword ptr [eax + 0x38]
+  00519C5B: 8b 06                mov      eax, dword ptr [esi]
+  00519C5D: 8d 4c 24 2c          lea      ecx, [esp + 0x2c]
+  00519C61: 51                   push     ecx
+  00519C62: 8b ce                mov      ecx, esi
+  00519C64: ff 90 b8 01 00 00    call     dword ptr [eax + 0x1b8]
+  00519C6A: 66 8b 10             mov      dx, word ptr [eax]
+  00519C6D: 66 8b 40 02          mov      ax, word ptr [eax + 2]
+  00519C71: 66 03 44 24 14       add      ax, word ptr [esp + 0x14]
+  00519C76: 66 03 d3             add      dx, bx
+  00519C79: 66 89 54 24 1c       mov      word ptr [esp + 0x1c], dx
+  00519C7E: 8d 54 24 24          lea      edx, [esp + 0x24]
+  00519C82: 66 89 44 24 1e       mov      word ptr [esp + 0x1e], ax
+  00519C87: 8b 4c 24 1c          mov      ecx, dword ptr [esp + 0x1c]
+  00519C8B: 89 4c 24 24          mov      dword ptr [esp + 0x24], ecx
+  00519C8F: 52                   push     edx
+  00519C90: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  00519C95: e8 06 bb 04 00       call     0x5657a0
+  00519C9A: 8b 0d 1c ad ab 00    mov      ecx, dword ptr [0xabad1c]
+  00519CA0: 8b 40 44             mov      eax, dword ptr [eax + 0x44]
+  00519CA3: 3b e9                cmp      ebp, ecx
+  00519CA5: 7c 07                jl       0x519cae
+  00519CA7: 83 c1 10             add      ecx, 0x10
+  00519CAA: 3b e9                cmp      ebp, ecx
+  00519CAC: 7c 0a                jl       0x519cb8
+  00519CAE: 83 f8 4a             cmp      eax, 0x4a
+  00519CB1: 7c 0a                jl       0x519cbd
+  00519CB3: 83 f8 65             cmp      eax, 0x65
+  00519CB6: 7f 05                jg       0x519cbd
+  00519CB8: c6 44 24 54 01       mov      byte ptr [esp + 0x54], 1
+  00519CBD: 43                   inc      ebx
+  00519CBE: 83 fb 03             cmp      ebx, 3
+  00519CC1: 0f 8c 52 ff ff ff    jl       0x519c19
+  00519CC7: 8b 44 24 14          mov      eax, dword ptr [esp + 0x14]
+  00519CCB: 40                   inc      eax
+  00519CCC: 83 f8 03             cmp      eax, 3
+  00519CCF: 89 44 24 14          mov      dword ptr [esp + 0x14], eax
+  00519CD3: 0f 8c 3b ff ff ff    jl       0x519c14
+  00519CD9: 8a 44 24 54          mov      al, byte ptr [esp + 0x54]
+  00519CDD: 84 c0                test     al, al
+  00519CDF: 74 1c                je       0x519cfd
+  00519CE1: 8b 06                mov      eax, dword ptr [esi]
+  00519CE3: 8d 4c 24 54          lea      ecx, [esp + 0x54]
+  00519CE7: 51                   push     ecx
+  00519CE8: 8b ce                mov      ecx, esi
+  00519CEA: ff 90 b8 01 00 00    call     dword ptr [eax + 0x1b8]
+  00519CF0: 50                   push     eax
+  00519CF1: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  00519CF6: e8 55 63 05 00       call     0x570050
+  00519CFB: eb 1a                jmp      0x519d17
+  00519CFD: 8b 16                mov      edx, dword ptr [esi]
+  00519CFF: 8d 44 24 54          lea      eax, [esp + 0x54]
+  00519D03: 50                   push     eax
+  00519D04: 8b ce                mov      ecx, esi
+  00519D06: ff 92 b8 01 00 00    call     dword ptr [edx + 0x1b8]
+  00519D0C: 50                   push     eax
+  00519D0D: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  00519D12: e8 29 98 05 00       call     0x573540
+  00519D17: 8b 0d f8 3d a8 00    mov      ecx, dword ptr [0xa83df8]
+  00519D1D: 8d 59 ff             lea      ebx, [ecx - 1]
+  00519D20: 85 db                test     ebx, ebx
+  00519D22: 7c 14                jl       0x519d38
+  00519D24: 8b 15 ec 3d a8 00    mov      edx, dword ptr [0xa83dec]
+  00519D2A: 6a 00                push     0
+  00519D2C: 57                   push     edi
+  00519D2D: 8b 0c 9a             mov      ecx, dword ptr [edx + ebx*4]
+  00519D30: 8b 01                mov      eax, dword ptr [ecx]
+  00519D32: ff 50 28             call     dword ptr [eax + 0x28]
+  00519D35: 4b                   dec      ebx
+  00519D36: 79 ec                jns      0x519d24
+  00519D38: 8b 17                mov      edx, dword ptr [edi]
+  00519D3A: 8b cf                mov      ecx, edi
+  00519D3C: ff 92 e0 02 00 00    call     dword ptr [edx + 0x2e0]
+  00519D42: e9 c9 02 00 00       jmp      0x51a010
+  00519D47: 8b 8e 1c 02 00 00    mov      ecx, dword ptr [esi + 0x21c]
+  00519D4D: 57                   push     edi
+  00519D4E: e8 3d fd fd ff       call     0x4f9a90
+  00519D53: 84 c0                test     al, al
+  00519D55: 0f 85 47 02 00 00    jne      0x519fa2
+  00519D5B: 8b 87 1c 02 00 00    mov      eax, dword ptr [edi + 0x21c]
+  00519D61: 8b 48 34             mov      ecx, dword ptr [eax + 0x34]
+  00519D64: 8a 81 a6 01 00 00    mov      al, byte ptr [ecx + 0x1a6]
+  00519D6A: 84 c0                test     al, al
+  00519D6C: 74 14                je       0x519d82
+  00519D6E: 8b 97 20 05 00 00    mov      edx, dword ptr [edi + 0x520]
+  00519D74: 8a 82 7b 15 00 00    mov      al, byte ptr [edx + 0x157b]
+  00519D7A: 84 c0                test     al, al
+  00519D7C: 0f 85 20 02 00 00    jne      0x519fa2
+  00519D82: 8b 07                mov      eax, dword ptr [edi]
+  00519D84: 8b cf                mov      ecx, edi
+  00519D86: 32 db                xor      bl, bl
+  00519D88: ff 50 2c             call     dword ptr [eax + 0x2c]
+  00519D8B: 83 f8 06             cmp      eax, 6
+  00519D8E: 75 0c                jne      0x519d9c
+  00519D90: 8b 8f 20 05 00 00    mov      ecx, dword ptr [edi + 0x520]
+  00519D96: 8a 99 72 15 00 00    mov      bl, byte ptr [ecx + 0x1572]
+  00519D9C: a1 38 b2 a8 00       mov      eax, dword ptr [0xa8b238]
+  00519DA1: 85 c0                test     eax, eax
+  00519DA3: 0f 84 01 01 00 00    je       0x519eaa
+  00519DA9: a0 6c b2 a8 00       mov      al, byte ptr [0xa8b26c]
+  00519DAE: 84 c0                test     al, al
+  00519DB0: 0f 84 f4 00 00 00    je       0x519eaa
+  00519DB6: 8b cf                mov      ecx, edi
+  00519DB8: e8 a3 be 0d 00       call     0x5f5c60
+  00519DBD: 8b 15 e0 71 88 00    mov      edx, dword ptr [0x8871e0]
+  00519DC3: dc 9a 08 17 00 00    fcomp    qword ptr [edx + 0x1708]
+  00519DC9: df e0                fnstsw   ax
+  00519DCB: f6 c4 41             test     ah, 0x41
+  00519DCE: 0f 85 d6 00 00 00    jne      0x519eaa
+  00519DD4: 8b 07                mov      eax, dword ptr [edi]
+  00519DD6: 8b cf                mov      ecx, edi
+  00519DD8: ff 90 84 00 00 00    call     dword ptr [eax + 0x84]
+  00519DDE: db 80 a0 00 00 00    fild     dword ptr [eax + 0xa0]
+  00519DE4: 8b 0d e0 71 88 00    mov      ecx, dword ptr [0x8871e0]
+  00519DEA: dc 89 08 17 00 00    fmul     qword ptr [ecx + 0x1708]
+  00519DF0: dc 0d 38 17 7e 00    fmul     qword ptr [0x7e1738]
+  00519DF6: e8 05 c1 2a 00       call     0x7c5f00
+  00519DFB: 8b 57 6c             mov      edx, dword ptr [edi + 0x6c]
+  00519DFE: 8b cf                mov      ecx, edi
+  00519E00: 2b d0                sub      edx, eax
+  00519E02: 8b 07                mov      eax, dword ptr [edi]
+  00519E04: 89 54 24 54          mov      dword ptr [esp + 0x54], edx
+  00519E08: db 44 24 54          fild     dword ptr [esp + 0x54]
+  00519E0C: dd 5c 24 2c          fstp     qword ptr [esp + 0x2c]
+  00519E10: ff 90 84 00 00 00    call     dword ptr [eax + 0x84]
+  00519E16: 8b 1d e0 71 88 00    mov      ebx, dword ptr [0x8871e0]
+  00519E1C: db 80 a0 00 00 00    fild     dword ptr [eax + 0xa0]
+  00519E22: dd 83 08 17 00 00    fld      qword ptr [ebx + 0x1708]
+  00519E28: dc 0d 38 17 7e 00    fmul     qword ptr [0x7e1738]
+  00519E2E: dc 2d 18 17 7e 00    fsubr    qword ptr [0x7e1718]
+  00519E34: dc 0d 38 17 7e 00    fmul     qword ptr [0x7e1738]
+  00519E3A: de c9                fmulp    st(1)
+  00519E3C: dc 5c 24 2c          fcomp    qword ptr [esp + 0x2c]
+  00519E40: df e0                fnstsw   ax
+  00519E42: f6 c4 01             test     ah, 1
+  00519E45: 74 32                je       0x519e79
+  00519E47: 8b 17                mov      edx, dword ptr [edi]
+  00519E49: 8b cf                mov      ecx, edi
+  00519E4B: ff 92 84 00 00 00    call     dword ptr [edx + 0x84]
+  00519E51: 8b 1d e0 71 88 00    mov      ebx, dword ptr [0x8871e0]
+  00519E57: db 80 a0 00 00 00    fild     dword ptr [eax + 0xa0]
+  00519E5D: dd 83 08 17 00 00    fld      qword ptr [ebx + 0x1708]
+  00519E63: dc 0d 38 17 7e 00    fmul     qword ptr [0x7e1738]
+  00519E69: dc 2d 18 17 7e 00    fsubr    qword ptr [0x7e1718]
+  00519E6F: dc 0d 38 17 7e 00    fmul     qword ptr [0x7e1738]
+  00519E75: de c9                fmulp    st(1)
+  00519E77: eb 04                jmp      0x519e7d
+  00519E79: dd 44 24 2c          fld      qword ptr [esp + 0x2c]
+  00519E7D: e8 7e c0 2a 00       call     0x7c5f00
+  00519E82: 6a 00                push     0
+  00519E84: 89 44 24 28          mov      dword ptr [esp + 0x28], eax
+  00519E88: 8b 8b a8 0f 00 00    mov      ecx, dword ptr [ebx + 0xfa8]
+  00519E8E: 8b 07                mov      eax, dword ptr [edi]
+  00519E90: 6a 00                push     0
+  00519E92: 6a 01                push     1
+  00519E94: 56                   push     esi
+  00519E95: 51                   push     ecx
+  00519E96: 8d 54 24 38          lea      edx, [esp + 0x38]
+  00519E9A: 6a 00                push     0
+  00519E9C: 52                   push     edx
+  00519E9D: 8b cf                mov      ecx, edi
+  00519E9F: ff 90 6c 01 00 00    call     dword ptr [eax + 0x16c]
+  00519EA5: e9 66 01 00 00       jmp      0x51a010
+  00519EAA: 84 db                test     bl, bl
+  00519EAC: 0f 84 5e 01 00 00    je       0x51a010
+  00519EB2: 83 bf ac 00 00 00 13 cmp      dword ptr [edi + 0xac], 0x13
+  00519EB9: 75 33                jne      0x519eee
+  00519EBB: 8b 06                mov      eax, dword ptr [esi]
+  00519EBD: 6a 01                push     1
+  00519EBF: 6a 00                push     0
+  00519EC1: 8b ce                mov      ecx, esi
+  00519EC3: ff 90 80 04 00 00    call     dword ptr [eax + 0x480]
+  00519EC9: 8b 17                mov      edx, dword ptr [edi]
+  00519ECB: 8b 1e                mov      ebx, dword ptr [esi]
+  00519ECD: 6a 01                push     1
+  00519ECF: 8d 44 24 48          lea      eax, [esp + 0x48]
+  00519ED3: 6a 01                push     1
+  00519ED5: 50                   push     eax
+  00519ED6: 8b cf                mov      ecx, edi
+  00519ED8: ff 52 48             call     dword ptr [edx + 0x48]
+  00519EDB: 50                   push     eax
+  00519EDC: 8b ce                mov      ecx, esi
+  00519EDE: ff 93 74 01 00 00    call     dword ptr [ebx + 0x174]
+  00519EE4: 5f                   pop      edi
+  00519EE5: 5e                   pop      esi
+  00519EE6: 5d                   pop      ebp
+  00519EE7: 5b                   pop      ebx
+  00519EE8: 83 c4 40             add      esp, 0x40
+  00519EEB: c2 04 00             ret      4
+  00519EEE: 8b 17                mov      edx, dword ptr [edi]
+  00519EF0: 8b cf                mov      ecx, edi
+  00519EF2: ff 92 d4 01 00 00    call     dword ptr [edx + 0x1d4]
+  00519EF8: 84 c0                test     al, al
+  00519EFA: 74 33                je       0x519f2f
+  00519EFC: 8b 06                mov      eax, dword ptr [esi]
+  00519EFE: 6a 01                push     1
+  00519F00: 6a 00                push     0
+  00519F02: 8b ce                mov      ecx, esi
+  00519F04: ff 90 80 04 00 00    call     dword ptr [eax + 0x480]
+  00519F0A: 8b 17                mov      edx, dword ptr [edi]
+  00519F0C: 8b 1e                mov      ebx, dword ptr [esi]
+  00519F0E: 6a 01                push     1
+  00519F10: 8d 44 24 48          lea      eax, [esp + 0x48]
+  00519F14: 6a 01                push     1
+  00519F16: 50                   push     eax
+  00519F17: 8b cf                mov      ecx, edi
+  00519F19: ff 52 48             call     dword ptr [edx + 0x48]
+  00519F1C: 50                   push     eax
+  00519F1D: 8b ce                mov      ecx, esi
+  00519F1F: ff 93 74 01 00 00    call     dword ptr [ebx + 0x174]
+  00519F25: 5f                   pop      edi
+  00519F26: 5e                   pop      esi
+  00519F27: 5d                   pop      ebp
+  00519F28: 5b                   pop      ebx
+  00519F29: 83 c4 40             add      esp, 0x40
+  00519F2C: c2 04 00             ret      4
+  00519F2F: 8b 4f 34             mov      ecx, dword ptr [edi + 0x34]
+  00519F32: 85 c9                test     ecx, ecx
+  00519F34: 74 13                je       0x519f49
+  00519F36: 8b 15 e0 f1 a8 00    mov      edx, dword ptr [0xa8f1e0]
+  00519F3C: 6a 00                push     0
+  00519F3E: 6a 00                push     0
+  00519F40: 52                   push     edx
+  00519F41: 56                   push     esi
+  00519F42: 6a 01                push     1
+  00519F44: e8 57 b4 1c 00       call     0x6e53a0
+  00519F49: 8b 87 1c 02 00 00    mov      eax, dword ptr [edi + 0x21c]
+  00519F4F: c6 80 44 02 00 00 01 mov      byte ptr [eax + 0x244], 1
+  00519F56: 8b 4e 34             mov      ecx, dword ptr [esi + 0x34]
+  00519F59: 85 c9                test     ecx, ecx
+  00519F5B: 74 14                je       0x519f71
+  00519F5D: e8 5e b8 1c 00       call     0x6e57c0
+  00519F62: 84 c0                test     al, al
+  00519F64: 74 0b                je       0x519f71
+  00519F66: 8b 4e 34             mov      ecx, dword ptr [esi + 0x34]
+  00519F69: 51                   push     ecx
+  00519F6A: 8b cf                mov      ecx, edi
+  00519F6C: e8 df bb 0d 00       call     0x5f5b50
+  00519F71: 8b 86 1c 02 00 00    mov      eax, dword ptr [esi + 0x21c]
+  00519F77: 8b 17                mov      edx, dword ptr [edi]
+  00519F79: 6a 01                push     1
+  00519F7B: 50                   push     eax
+  00519F7C: 8b cf                mov      ecx, edi
+  00519F7E: ff 92 d4 03 00 00    call     dword ptr [edx + 0x3d4]
+  00519F84: 8b 8e c0 06 00 00    mov      ecx, dword ptr [esi + 0x6c0]
+  00519F8A: 8b 07                mov      eax, dword ptr [edi]
+  00519F8C: 8b 91 f8 0d 00 00    mov      edx, dword ptr [ecx + 0xdf8]
+  00519F92: 8b cf                mov      ecx, edi
+  00519F94: 89 97 38 03 00 00    mov      dword ptr [edi + 0x338], edx
+  00519F9A: ff 90 e0 02 00 00    call     dword ptr [eax + 0x2e0]
+  00519FA0: eb 6e                jmp      0x51a010
+  00519FA2: 8b 17                mov      edx, dword ptr [edi]
+  00519FA4: 8b cf                mov      ecx, edi
+  00519FA6: ff 92 84 00 00 00    call     dword ptr [edx + 0x84]
+  00519FAC: 8b 4f 6c             mov      ecx, dword ptr [edi + 0x6c]
+  00519FAF: 8b 90 a0 00 00 00    mov      edx, dword ptr [eax + 0xa0]
+  00519FB5: 3b ca                cmp      ecx, edx
+  00519FB7: 75 33                jne      0x519fec
+  00519FB9: 8b 16                mov      edx, dword ptr [esi]
+  00519FBB: 6a 01                push     1
+  00519FBD: 6a 00                push     0
+  00519FBF: 8b ce                mov      ecx, esi
+  00519FC1: ff 92 80 04 00 00    call     dword ptr [edx + 0x480]
+  00519FC7: 8b 07                mov      eax, dword ptr [edi]
+  00519FC9: 8b 1e                mov      ebx, dword ptr [esi]
+  00519FCB: 6a 01                push     1
+  00519FCD: 8d 4c 24 48          lea      ecx, [esp + 0x48]
+  00519FD1: 6a 01                push     1
+  00519FD3: 51                   push     ecx
+  00519FD4: 8b cf                mov      ecx, edi
+  00519FD6: ff 50 48             call     dword ptr [eax + 0x48]
+  00519FD9: 50                   push     eax
+  00519FDA: 8b ce                mov      ecx, esi
+  00519FDC: ff 93 74 01 00 00    call     dword ptr [ebx + 0x174]
+  00519FE2: 5f                   pop      edi
+  00519FE3: 5e                   pop      esi
+  00519FE4: 5d                   pop      ebp
+  00519FE5: 5b                   pop      ebx
+  00519FE6: 83 c4 40             add      esp, 0x40
+  00519FE9: c2 04 00             ret      4
+  00519FEC: 8b 17                mov      edx, dword ptr [edi]
+  00519FEE: 8b cf                mov      ecx, edi
+  00519FF0: ff 92 0c 04 00 00    call     dword ptr [edx + 0x40c]
+  00519FF6: eb 18                jmp      0x51a010
+
+============================================================
+Region: InfantryClass::UpdatePosition infiltration gate (0x519FF8-0x51A060) (00519FF8 - 0051A060)
+============================================================
+  00519FF8: 8a 88 c4 0e 00 00    mov      cl, byte ptr [eax + 0xec4]
+  00519FFE: 84 c9                test     cl, cl
+  0051A000: 74 3c                je       0x51a03e
+  0051A002: 8b 86 1c 02 00 00    mov      eax, dword ptr [esi + 0x21c]
+  0051A008: 8b cf                mov      ecx, edi
+  0051A00A: 50                   push     eax
+  0051A00B: e8 d0 d1 f3 ff       call     0x4571e0
+  0051A010: 8b 4e 34             mov      ecx, dword ptr [esi + 0x34]
+  0051A013: 85 c9                test     ecx, ecx
+  0051A015: 74 13                je       0x51a02a
+  0051A017: 8b 15 e0 f1 a8 00    mov      edx, dword ptr [0xa8f1e0]
+  0051A01D: 6a 00                push     0
+  0051A01F: 6a 00                push     0
+  0051A021: 52                   push     edx
+  0051A022: 56                   push     esi
+  0051A023: 6a 30                push     0x30
+  0051A025: e8 76 b3 1c 00       call     0x6e53a0
+  0051A02A: 8b 06                mov      eax, dword ptr [esi]
+  0051A02C: 8b ce                mov      ecx, esi
+  0051A02E: ff 90 f8 00 00 00    call     dword ptr [eax + 0xf8]
+  0051A034: 5f                   pop      edi
+  0051A035: 5e                   pop      esi
+  0051A036: 5d                   pop      ebp
+  0051A037: 5b                   pop      ebx
+  0051A038: 83 c4 40             add      esp, 0x40
+  0051A03B: c2 04 00             ret      4
+  0051A03E: 8b 16                mov      edx, dword ptr [esi]
+  0051A040: 6a 01                push     1
+  0051A042: 6a 00                push     0
+  0051A044: 8b ce                mov      ecx, esi
+  0051A046: ff 92 80 04 00 00    call     dword ptr [edx + 0x480]
+  0051A04C: 8b 07                mov      eax, dword ptr [edi]
+  0051A04E: 8b 1e                mov      ebx, dword ptr [esi]
+  0051A050: 6a 01                push     1
+  0051A052: 8d 4c 24 48          lea      ecx, [esp + 0x48]
+  0051A056: 6a 01                push     1
+  0051A058: 51                   push     ecx
+  0051A059: 8b cf                mov      ecx, edi
+  0051A05B: ff 50 48             call     dword ptr [eax + 0x48]
+  0051A05E: 50                   push     eax

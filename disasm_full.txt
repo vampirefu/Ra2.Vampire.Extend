@@ -1,0 +1,1171 @@
+Disassembling 0051E3B0 - 0051F200
+RVA: 0011E3B0 - 0011F200
+File offset: 0011E3B0 - 0011F200
+================================================================================
+  0051E3B0: 8a 44 24 08          mov      al, byte ptr [esp + 8]  <<< FUNCTION START
+  0051E3B4: 83 ec 28             sub      esp, 0x28
+  0051E3B7: 84 c0                test     al, al
+  0051E3B9: 53                   push     ebx
+  0051E3BA: 55                   push     ebp
+  0051E3BB: 56                   push     esi
+  0051E3BC: 57                   push     edi
+  0051E3BD: 8b f9                mov      edi, ecx
+  0051E3BF: 75 2e                jne      0x51e3ef
+  0051E3C1: a1 08 ec a8 00       mov      eax, dword ptr [0xa8ec08]
+  0051E3C6: 8b 0d 70 f7 87 00    mov      ecx, dword ptr [0x87f770]
+  0051E3CC: 50                   push     eax
+  0051E3CD: e8 ee 11 03 00       call     0x54f5c0
+  0051E3D2: 84 c0                test     al, al
+  0051E3D4: 75 15                jne      0x51e3eb
+  0051E3D6: a1 0c ec a8 00       mov      eax, dword ptr [0xa8ec0c]
+  0051E3DB: 8b 0d 70 f7 87 00    mov      ecx, dword ptr [0x87f770]
+  0051E3E1: 50                   push     eax
+  0051E3E2: e8 d9 11 03 00       call     0x54f5c0
+  0051E3E7: 84 c0                test     al, al
+  0051E3E9: 74 04                je       0x51e3ef
+  0051E3EB: b3 01                mov      bl, 1
+  0051E3ED: eb 0a                jmp      0x51e3f9
+  0051E3EF: 8a 44 24 40          mov      al, byte ptr [esp + 0x40]
+  0051E3F3: 32 db                xor      bl, bl
+  0051E3F5: 84 c0                test     al, al
+  0051E3F7: 75 31                jne      0x51e42a
+  0051E3F9: a1 00 ec a8 00       mov      eax, dword ptr [0xa8ec00]
+  0051E3FE: 8b 0d 70 f7 87 00    mov      ecx, dword ptr [0x87f770]
+  0051E404: 50                   push     eax
+  0051E405: e8 b6 11 03 00       call     0x54f5c0
+  0051E40A: 84 c0                test     al, al
+  0051E40C: 75 15                jne      0x51e423
+  0051E40E: a1 04 ec a8 00       mov      eax, dword ptr [0xa8ec04]
+  0051E413: 8b 0d 70 f7 87 00    mov      ecx, dword ptr [0x87f770]
+  0051E419: 50                   push     eax
+  0051E41A: e8 a1 11 03 00       call     0x54f5c0
+  0051E41F: 84 c0                test     al, al
+  0051E421: 74 07                je       0x51e42a
+  0051E423: c6 44 24 13 01       mov      byte ptr [esp + 0x13], 1
+  0051E428: eb 05                jmp      0x51e42f
+  0051E42A: c6 44 24 13 00       mov      byte ptr [esp + 0x13], 0
+  0051E42F: 84 db                test     bl, bl
+  0051E431: 74 0d                je       0x51e440
+  0051E433: 8a 44 24 13          mov      al, byte ptr [esp + 0x13]
+  0051E437: 84 c0                test     al, al
+  0051E439: 74 05                je       0x51e440
+  0051E43B: c6 44 24 13 00       mov      byte ptr [esp + 0x13], 0
+  0051E440: 8b 44 24 40          mov      eax, dword ptr [esp + 0x40]
+  0051E444: 8b 74 24 3c          mov      esi, dword ptr [esp + 0x3c]
+  0051E448: 50                   push     eax
+  0051E449: 56                   push     esi
+  0051E44A: 8b cf                mov      ecx, edi
+  0051E44C: e8 7f fa fb ff       call     0x4dded0
+  0051E451: 8b e8                mov      ebp, eax
+  0051E453: 83 fd 08             cmp      ebp, 8
+  0051E456: 75 0a                jne      0x51e462
+  0051E458: 5f                   pop      edi
+  0051E459: 5e                   pop      esi
+  0051E45A: 5d                   pop      ebp
+  0051E45B: 5b                   pop      ebx
+  0051E45C: 83 c4 28             add      esp, 0x28
+  0051E45F: c2 08 00             ret      8
+  0051E462: 8b 8f c0 06 00 00    mov      ecx, dword ptr [edi + 0x6c0]
+  0051E468: 8a 81 c3 0e 00 00    mov      al, byte ptr [ecx + 0xec3]
+  0051E46E: 84 c0                test     al, al
+  0051E470: 74 2c                je       0x51e49e
+  0051E472: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E478: e8 73 d2 fe ff       call     0x50b6f0
+  0051E47D: 84 c0                test     al, al
+  0051E47F: 74 1d                je       0x51e49e
+  0051E481: 8b 46 38             mov      eax, dword ptr [esi + 0x38]
+  0051E484: 85 c0                test     eax, eax
+  0051E486: 74 16                je       0x51e49e
+  0051E488: 8a 46 68             mov      al, byte ptr [esi + 0x68]
+  0051E48B: 84 c0                test     al, al
+  0051E48D: 74 0f                je       0x51e49e
+  0051E48F: 5f                   pop      edi
+  0051E490: 5e                   pop      esi
+  0051E491: 5d                   pop      ebp
+  0051E492: b8 39 00 00 00       mov      eax, 0x39
+  0051E497: 5b                   pop      ebx
+  0051E498: 83 c4 28             add      esp, 0x28
+  0051E49B: c2 08 00             ret      8
+  0051E49E: 8b 97 c0 06 00 00    mov      edx, dword ptr [edi + 0x6c0]
+  0051E4A4: 8a 82 c3 0e 00 00    mov      al, byte ptr [edx + 0xec3]
+  0051E4AA: 84 c0                test     al, al
+  0051E4AC: 0f 84 b6 01 00 00    je       0x51e668
+  0051E4B2: 8b 06                mov      eax, dword ptr [esi]
+  0051E4B4: 8b ce                mov      ecx, esi
+  0051E4B6: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051E4B9: 83 f8 06             cmp      eax, 6
+  0051E4BC: 0f 85 a6 01 00 00    jne      0x51e668
+  0051E4C2: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E4C8: e8 23 d2 fe ff       call     0x50b6f0
+  0051E4CD: 84 c0                test     al, al
+  0051E4CF: 0f 84 93 01 00 00    je       0x51e668
+  0051E4D5: 8b 16                mov      edx, dword ptr [esi]
+  0051E4D7: 8b ce                mov      ecx, esi
+  0051E4D9: ff 92 80 00 00 00    call     dword ptr [edx + 0x80]  <<< engi enter to fix/takeover
+  0051E4DF: 84 c0                test     al, al
+  0051E4E1: 0f 85 81 01 00 00    jne      0x51e668
+  0051E4E7: 8b 86 20 05 00 00    mov      eax, dword ptr [esi + 0x520]
+  0051E4ED: 8a 88 cc 0c 00 00    mov      cl, byte ptr [eax + 0xccc]
+  0051E4F3: 84 c9                test     cl, cl
+  0051E4F5: 0f 84 6d 01 00 00    je       0x51e668
+  0051E4FB: 8a 88 b6 16 00 00    mov      cl, byte ptr [eax + 0x16b6]
+  0051E501: 84 c9                test     cl, cl
+  0051E503: 74 5f                je       0x51e564
+  0051E505: 8b 06                mov      eax, dword ptr [esi]
+  0051E507: 8d 4c 24 2c          lea      ecx, [esp + 0x2c]
+  0051E50B: 51                   push     ecx
+  0051E50C: 8b ce                mov      ecx, esi
+  0051E50E: ff 50 48             call     dword ptr [eax + 0x48]
+  0051E511: 8b c8                mov      ecx, eax
+  0051E513: 8b 01                mov      eax, dword ptr [ecx]
+  0051E515: 99                   cdq      
+  0051E516: 81 e2 ff 00 00 00    and      edx, 0xff
+  0051E51C: 03 c2                add      eax, edx
+  0051E51E: c1 f8 08             sar      eax, 8
+  0051E521: 66 89 44 24 40       mov      word ptr [esp + 0x40], ax
+  0051E526: 8b 41 04             mov      eax, dword ptr [ecx + 4]
+  0051E529: 99                   cdq      
+  0051E52A: 81 e2 ff 00 00 00    and      edx, 0xff
+  0051E530: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  0051E535: 03 c2                add      eax, edx
+  0051E537: c1 f8 08             sar      eax, 8
+  0051E53A: 66 89 44 24 42       mov      word ptr [esp + 0x42], ax
+  0051E53F: 8b 54 24 40          mov      edx, dword ptr [esp + 0x40]
+  0051E543: 8d 44 24 3c          lea      eax, [esp + 0x3c]
+  0051E547: 89 54 24 3c          mov      dword ptr [esp + 0x3c], edx
+  0051E54B: 50                   push     eax
+  0051E54C: e8 bf 8e 06 00       call     0x587410
+  0051E551: f6 d8                neg      al
+  0051E553: 1b c0                sbb      eax, eax
+  0051E555: 5f                   pop      edi
+  0051E556: 24 fd                and      al, 0xfd
+  0051E558: 5e                   pop      esi
+  0051E559: 5d                   pop      ebp
+  0051E55A: 83 c0 20             add      eax, 0x20
+  0051E55D: 5b                   pop      ebx
+  0051E55E: 83 c4 28             add      esp, 0x28
+  0051E561: c2 08 00             ret      8
+  0051E564: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E56A: 56                   push     esi
+  0051E56B: e8 20 b5 fd ff       call     0x4f9a90
+  0051E570: 84 c0                test     al, al
+  0051E572: 75 74                jne      0x51e5e8
+  0051E574: 8b 8e 1c 02 00 00    mov      ecx, dword ptr [esi + 0x21c]
+  0051E57A: 8b 51 34             mov      edx, dword ptr [ecx + 0x34]
+  0051E57D: 8a 82 a6 01 00 00    mov      al, byte ptr [edx + 0x1a6]
+  0051E583: 84 c0                test     al, al
+  0051E585: 74 1e                je       0x51e5a5
+  0051E587: 8b 86 20 05 00 00    mov      eax, dword ptr [esi + 0x520]
+  0051E58D: 8a 88 7b 15 00 00    mov      cl, byte ptr [eax + 0x157b]
+  0051E593: 84 c9                test     cl, cl
+  0051E595: 74 0e                je       0x51e5a5
+  0051E597: 8b 16                mov      edx, dword ptr [esi]
+  0051E599: 8b ce                mov      ecx, esi
+  0051E59B: ff 92 d4 01 00 00    call     dword ptr [edx + 0x1d4]
+  0051E5A1: 84 c0                test     al, al
+  0051E5A3: 74 43                je       0x51e5e8
+  0051E5A5: 8b 86 20 05 00 00    mov      eax, dword ptr [esi + 0x520]
+  0051E5AB: 8a 88 72 15 00 00    mov      cl, byte ptr [eax + 0x1572]
+  0051E5B1: 84 c9                test     cl, cl
+  0051E5B3: 0f 84 af 00 00 00    je       0x51e668
+  0051E5B9: 8b ce                mov      ecx, esi
+  0051E5BB: e8 a0 76 0d 00       call     0x5f5c60
+  0051E5C0: 8b 0d e0 71 88 00    mov      ecx, dword ptr [0x8871e0]
+  0051E5C6: d9 81 f8 17 00 00    fld      dword ptr [ecx + 0x17f8]
+  0051E5CC: de d9                fcompp   
+  0051E5CE: df e0                fnstsw   ax
+  0051E5D0: f6 c4 01             test     ah, 1
+  0051E5D3: 0f 84 cc 00 00 00    je       0x51e6a5
+  0051E5D9: 5f                   pop      edi
+  0051E5DA: 5e                   pop      esi
+  0051E5DB: 5d                   pop      ebp
+  0051E5DC: b8 1c 00 00 00       mov      eax, 0x1c
+  0051E5E1: 5b                   pop      ebx
+  0051E5E2: 83 c4 28             add      esp, 0x28
+  0051E5E5: c2 08 00             ret      8
+  0051E5E8: 8b 96 20 05 00 00    mov      edx, dword ptr [esi + 0x520]
+  0051E5EE: 8a 82 c1 16 00 00    mov      al, byte ptr [edx + 0x16c1]
+  0051E5F4: 84 c0                test     al, al
+  0051E5F6: 74 28                je       0x51e620
+  0051E5F8: 8b cf                mov      ecx, edi
+  0051E5FA: e8 61 76 0d 00       call     0x5f5c60
+  0051E5FF: a1 e0 71 88 00       mov      eax, dword ptr [0x8871e0]
+  0051E604: dc 98 f8 16 00 00    fcomp    qword ptr [eax + 0x16f8]
+  0051E60A: df e0                fnstsw   ax
+  0051E60C: f6 c4 01             test     ah, 1
+  0051E60F: 74 0f                je       0x51e620
+  0051E611: 5f                   pop      edi
+  0051E612: 5e                   pop      esi
+  0051E613: 5d                   pop      ebp
+  0051E614: b8 03 00 00 00       mov      eax, 3
+  0051E619: 5b                   pop      ebx
+  0051E61A: 83 c4 28             add      esp, 0x28
+  0051E61D: c2 08 00             ret      8
+  0051E620: 8b ce                mov      ecx, esi
+  0051E622: e8 39 76 0d 00       call     0x5f5c60
+  0051E627: 8b 0d e0 71 88 00    mov      ecx, dword ptr [0x8871e0]
+  0051E62D: dc 99 f8 16 00 00    fcomp    qword ptr [ecx + 0x16f8]
+  0051E633: df e0                fnstsw   ax
+  0051E635: f6 c4 40             test     ah, 0x40
+  0051E638: 74 1f                je       0x51e659
+  0051E63A: 8b 96 20 05 00 00    mov      edx, dword ptr [esi + 0x520]
+  0051E640: 5f                   pop      edi
+  0051E641: 5e                   pop      esi
+  0051E642: 5d                   pop      ebp
+  0051E643: 8a 82 ad 16 00 00    mov      al, byte ptr [edx + 0x16ad]
+  0051E649: 5b                   pop      ebx
+  0051E64A: f6 d8                neg      al
+  0051E64C: 1b c0                sbb      eax, eax
+  0051E64E: 24 eb                and      al, 0xeb
+  0051E650: 83 c0 20             add      eax, 0x20
+  0051E653: 83 c4 28             add      esp, 0x28
+  0051E656: c2 08 00             ret      8
+  0051E659: 5f                   pop      edi
+  0051E65A: 5e                   pop      esi
+  0051E65B: 5d                   pop      ebp
+  0051E65C: b8 1d 00 00 00       mov      eax, 0x1d
+  0051E661: 5b                   pop      ebx
+  0051E662: 83 c4 28             add      esp, 0x28
+  0051E665: c2 08 00             ret      8
+  0051E668: 8b 06                mov      eax, dword ptr [esi]
+  0051E66A: 8b ce                mov      ecx, esi
+  0051E66C: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051E66F: 83 f8 06             cmp      eax, 6
+  0051E672: 75 40                jne      0x51e6b4
+  0051E674: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E67A: e8 71 d0 fe ff       call     0x50b6f0
+  0051E67F: 84 c0                test     al, al
+  0051E681: 74 31                je       0x51e6b4
+  0051E683: 8b 16                mov      edx, dword ptr [esi]
+  0051E685: 8b ce                mov      ecx, esi
+  0051E687: ff 92 d4 01 00 00    call     dword ptr [edx + 0x1d4]
+  0051E68D: 84 c0                test     al, al
+  0051E68F: 75 23                jne      0x51e6b4
+  0051E691: 57                   push     edi
+  0051E692: 8b ce                mov      ecx, esi
+  0051E694: e8 47 96 f3 ff       call     0x457ce0
+  0051E699: 84 c0                test     al, al
+  0051E69B: 74 17                je       0x51e6b4
+  0051E69D: 8a 44 24 13          mov      al, byte ptr [esp + 0x13]
+  0051E6A1: 84 c0                test     al, al
+  0051E6A3: 75 0f                jne      0x51e6b4
+  0051E6A5: 5f                   pop      edi
+  0051E6A6: 5e                   pop      esi
+  0051E6A7: 5d                   pop      ebp
+  0051E6A8: b8 09 00 00 00       mov      eax, 9
+  0051E6AD: 5b                   pop      ebx
+  0051E6AE: 83 c4 28             add      esp, 0x28
+  0051E6B1: c2 08 00             ret      8
+  0051E6B4: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051E6BA: 8a 88 c3 0e 00 00    mov      cl, byte ptr [eax + 0xec3]
+  0051E6C0: 84 c9                test     cl, cl
+  0051E6C2: 74 14                je       0x51e6d8
+  0051E6C4: 83 fd 05             cmp      ebp, 5
+  0051E6C7: 75 0f                jne      0x51e6d8
+  0051E6C9: 5f                   pop      edi
+  0051E6CA: 5e                   pop      esi
+  0051E6CB: 5d                   pop      ebp
+  0051E6CC: b8 02 00 00 00       mov      eax, 2
+  0051E6D1: 5b                   pop      ebx
+  0051E6D2: 83 c4 28             add      esp, 0x28
+  0051E6D5: c2 08 00             ret      8
+  0051E6D8: 6a ff                push     -1
+  0051E6DA: 8b cf                mov      ecx, edi
+  0051E6DC: e8 8f 52 1d 00       call     0x6f3970
+  0051E6E1: 85 c0                test     eax, eax
+  0051E6E3: 0f 8d bd 00 00 00    jge      0x51e7a6
+  0051E6E9: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E6EF: e8 fc cf fe ff       call     0x50b6f0
+  0051E6F4: 84 c0                test     al, al
+  0051E6F6: 0f 84 aa 00 00 00    je       0x51e7a6
+  0051E6FC: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E702: 56                   push     esi
+  0051E703: e8 88 b3 fd ff       call     0x4f9a90
+  0051E708: 84 c0                test     al, al
+  0051E70A: 0f 84 87 00 00 00    je       0x51e797
+  0051E710: 8b 16                mov      edx, dword ptr [esi]
+  0051E712: 8b ce                mov      ecx, esi
+  0051E714: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051E717: 83 f8 0f             cmp      eax, 0xf
+  0051E71A: 75 3b                jne      0x51e757
+  0051E71C: 3b f7                cmp      esi, edi
+  0051E71E: 74 28                je       0x51e748
+  0051E720: 8b ce                mov      ecx, esi
+  0051E722: e8 39 75 0d 00       call     0x5f5c60
+  0051E727: a1 e0 71 88 00       mov      eax, dword ptr [0x8871e0]
+  0051E72C: dc 98 f8 16 00 00    fcomp    qword ptr [eax + 0x16f8]
+  0051E732: df e0                fnstsw   ax
+  0051E734: f6 c4 01             test     ah, 1
+  0051E737: 74 1e                je       0x51e757
+  0051E739: 5f                   pop      edi
+  0051E73A: 5e                   pop      esi
+  0051E73B: 5d                   pop      ebp
+  0051E73C: b8 1b 00 00 00       mov      eax, 0x1b
+  0051E741: 5b                   pop      ebx
+  0051E742: 83 c4 28             add      esp, 0x28
+  0051E745: c2 08 00             ret      8
+  0051E748: 5f                   pop      edi
+  0051E749: 5e                   pop      esi
+  0051E74A: 5d                   pop      ebp
+  0051E74B: b8 1a 00 00 00       mov      eax, 0x1a
+  0051E750: 5b                   pop      ebx
+  0051E751: 83 c4 28             add      esp, 0x28
+  0051E754: c2 08 00             ret      8
+  0051E757: 8b ce                mov      ecx, esi
+  0051E759: e8 c2 f5 ee ff       call     0x40dd20
+  0051E75E: 85 c0                test     eax, eax
+  0051E760: 74 14                je       0x51e776
+  0051E762: 8b 10                mov      edx, dword ptr [eax]
+  0051E764: 8b c8                mov      ecx, eax
+  0051E766: ff 92 84 00 00 00    call     dword ptr [edx + 0x84]
+  0051E76C: 8b 88 e0 05 00 00    mov      ecx, dword ptr [eax + 0x5e0]
+  0051E772: 85 c9                test     ecx, ecx
+  0051E774: 75 30                jne      0x51e7a6
+  0051E776: 83 fd 1a             cmp      ebp, 0x1a
+  0051E779: 0f 84 ff 09 00 00    je       0x51f17e
+  0051E77F: 83 fd 01             cmp      ebp, 1
+  0051E782: 0f 84 f6 09 00 00    je       0x51f17e
+  0051E788: 5f                   pop      edi
+  0051E789: 5e                   pop      esi
+  0051E78A: 5d                   pop      ebp
+  0051E78B: b8 07 00 00 00       mov      eax, 7
+  0051E790: 5b                   pop      ebx
+  0051E791: 83 c4 28             add      esp, 0x28
+  0051E794: c2 08 00             ret      8
+  0051E797: 5f                   pop      edi
+  0051E798: 5e                   pop      esi
+  0051E799: 5d                   pop      ebp
+  0051E79A: b8 3b 00 00 00       mov      eax, 0x3b
+  0051E79F: 5b                   pop      ebx
+  0051E7A0: 83 c4 28             add      esp, 0x28
+  0051E7A3: c2 08 00             ret      8
+  0051E7A6: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E7AC: e8 3f cf fe ff       call     0x50b6f0
+  0051E7B1: 84 c0                test     al, al
+  0051E7B3: 0f 84 a1 00 00 00    je       0x51e85a
+  0051E7B9: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051E7BF: 8a 88 c6 0e 00 00    mov      cl, byte ptr [eax + 0xec6]
+  0051E7C5: 84 c9                test     cl, cl
+  0051E7C7: 0f 84 8d 00 00 00    je       0x51e85a
+  0051E7CD: 8b 16                mov      edx, dword ptr [esi]
+  0051E7CF: 8b ce                mov      ecx, esi
+  0051E7D1: ff 92 80 00 00 00    call     dword ptr [edx + 0x80]  <<< VehicleThief steal
+  0051E7D7: 84 c0                test     al, al
+  0051E7D9: 74 7f                je       0x51e85a
+  0051E7DB: 8b 06                mov      eax, dword ptr [esi]
+  0051E7DD: 8b ce                mov      ecx, esi
+  0051E7DF: ff 90 84 00 00 00    call     dword ptr [eax + 0x84]
+  0051E7E5: 8a 88 94 0c 00 00    mov      cl, byte ptr [eax + 0xc94]
+  0051E7EB: 84 c9                test     cl, cl
+  0051E7ED: 74 0f                je       0x51e7fe
+  0051E7EF: 5f                   pop      edi
+  0051E7F0: 5e                   pop      esi
+  0051E7F1: 5d                   pop      ebp
+  0051E7F2: b8 07 00 00 00       mov      eax, 7
+  0051E7F7: 5b                   pop      ebx
+  0051E7F8: 83 c4 28             add      esp, 0x28
+  0051E7FB: c2 08 00             ret      8
+  0051E7FE: 8b 8e 1c 02 00 00    mov      ecx, dword ptr [esi + 0x21c]
+  0051E804: 8b 87 1c 02 00 00    mov      eax, dword ptr [edi + 0x21c]
+  0051E80A: 3b c8                cmp      ecx, eax
+  0051E80C: 74 4c                je       0x51e85a
+  0051E80E: 8b 15 30 b2 a8 00    mov      edx, dword ptr [0xa8b230]
+  0051E814: 8b 02                mov      eax, dword ptr [edx]
+  0051E816: f6 c4 08             test     ah, 8
+  0051E819: 0f 84 86 fe ff ff    je       0x51e6a5
+  0051E81F: 8b 0d e0 71 88 00    mov      ecx, dword ptr [0x8871e0]
+  0051E825: 33 c0                xor      eax, eax
+  0051E827: 8b 91 4c 0b 00 00    mov      edx, dword ptr [ecx + 0xb4c]
+  0051E82D: 85 d2                test     edx, edx
+  0051E82F: 0f 8e 70 fe ff ff    jle      0x51e6a5
+  0051E835: 8b 89 40 0b 00 00    mov      ecx, dword ptr [ecx + 0xb40]
+  0051E83B: 39 31                cmp      dword ptr [ecx], esi
+  0051E83D: 0f 84 71 02 00 00    je       0x51eab4
+  0051E843: 40                   inc      eax
+  0051E844: 83 c1 04             add      ecx, 4
+  0051E847: 3b c2                cmp      eax, edx
+  0051E849: 7c f0                jl       0x51e83b
+  0051E84B: 5f                   pop      edi
+  0051E84C: 5e                   pop      esi
+  0051E84D: 5d                   pop      ebp
+  0051E84E: b8 09 00 00 00       mov      eax, 9
+  0051E853: 5b                   pop      ebx
+  0051E854: 83 c4 28             add      esp, 0x28
+  0051E857: c2 08 00             ret      8
+  0051E85A: 8b 06                mov      eax, dword ptr [esi]
+  0051E85C: 8b ce                mov      ecx, esi
+  0051E85E: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051E861: 83 f8 06             cmp      eax, 6
+  0051E864: 0f 85 9c 00 00 00    jne      0x51e906
+  0051E86A: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E870: 56                   push     esi
+  0051E871: e8 1a b2 fd ff       call     0x4f9a90
+  0051E876: 84 c0                test     al, al
+  0051E878: 0f 84 88 00 00 00    je       0x51e906
+  0051E87E: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E884: e8 67 ce fe ff       call     0x50b6f0
+  0051E889: 84 c0                test     al, al
+  0051E88B: 74 79                je       0x51e906
+  0051E88D: 8b 16                mov      edx, dword ptr [esi]
+  0051E88F: 8b ce                mov      ecx, esi
+  0051E891: ff 92 d4 01 00 00    call     dword ptr [edx + 0x1d4]
+  0051E897: 84 c0                test     al, al
+  0051E899: 75 6b                jne      0x51e906
+  0051E89B: 8b 86 20 05 00 00    mov      eax, dword ptr [esi + 0x520]
+  0051E8A1: 8a 88 c1 16 00 00    mov      cl, byte ptr [eax + 0x16c1]
+  0051E8A7: 84 c9                test     cl, cl
+  0051E8A9: 74 5b                je       0x51e906
+  0051E8AB: 8a 44 24 13          mov      al, byte ptr [esp + 0x13]
+  0051E8AF: 84 c0                test     al, al
+  0051E8B1: 75 53                jne      0x51e906
+  0051E8B3: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051E8B9: 8b 4f 6c             mov      ecx, dword ptr [edi + 0x6c]
+  0051E8BC: 3b 88 a0 00 00 00    cmp      ecx, dword ptr [eax + 0xa0]
+  0051E8C2: 7d 3d                jge      0x51e901
+  0051E8C4: 8a 88 c8 0e 00 00    mov      cl, byte ptr [eax + 0xec8]
+  0051E8CA: 84 c9                test     cl, cl
+  0051E8CC: 74 1a                je       0x51e8e8
+  0051E8CE: 8b 87 c4 06 00 00    mov      eax, dword ptr [edi + 0x6c4]
+  0051E8D4: 83 f8 1b             cmp      eax, 0x1b
+  0051E8D7: 74 2d                je       0x51e906
+  0051E8D9: 83 f8 1c             cmp      eax, 0x1c
+  0051E8DC: 74 28                je       0x51e906
+  0051E8DE: 83 f8 1d             cmp      eax, 0x1d
+  0051E8E1: 74 23                je       0x51e906
+  0051E8E3: 83 f8 1e             cmp      eax, 0x1e
+  0051E8E6: 74 1e                je       0x51e906
+  0051E8E8: 8b 17                mov      edx, dword ptr [edi]
+  0051E8EA: 56                   push     esi
+  0051E8EB: 6a 0f                push     0xf
+  0051E8ED: 8b cf                mov      ecx, edi
+  0051E8EF: ff 92 78 02 00 00    call     dword ptr [edx + 0x278]
+  0051E8F5: 48                   dec      eax
+  0051E8F6: 0f 84 af 00 00 00    je       0x51e9ab
+  0051E8FC: 83 e8 09             sub      eax, 9
+  0051E8FF: 75 05                jne      0x51e906
+  0051E901: bd 1f 00 00 00       mov      ebp, 0x1f
+  0051E906: 8b 06                mov      eax, dword ptr [esi]
+  0051E908: 8b ce                mov      ecx, esi
+  0051E90A: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051E90D: 83 f8 06             cmp      eax, 6
+  0051E910: 0f 85 ab 00 00 00    jne      0x51e9c1
+  0051E916: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E91C: 56                   push     esi
+  0051E91D: e8 6e b1 fd ff       call     0x4f9a90
+  0051E922: 84 c0                test     al, al
+  0051E924: 0f 84 97 00 00 00    je       0x51e9c1
+  0051E92A: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E930: e8 bb cd fe ff       call     0x50b6f0
+  0051E935: 84 c0                test     al, al
+  0051E937: 0f 84 84 00 00 00    je       0x51e9c1
+  0051E93D: 8b 16                mov      edx, dword ptr [esi]
+  0051E93F: 8b ce                mov      ecx, esi
+  0051E941: ff 92 d4 01 00 00    call     dword ptr [edx + 0x1d4]
+  0051E947: 84 c0                test     al, al
+  0051E949: 75 76                jne      0x51e9c1
+  0051E94B: 8b 86 20 05 00 00    mov      eax, dword ptr [esi + 0x520]
+  0051E951: 8a 88 c2 16 00 00    mov      cl, byte ptr [eax + 0x16c2]
+  0051E957: 84 c9                test     cl, cl
+  0051E959: 74 66                je       0x51e9c1
+  0051E95B: 8d 8f 50 01 00 00    lea      ecx, [edi + 0x150]
+  0051E961: e8 aa 16 23 00       call     0x750010
+  0051E966: 84 c0                test     al, al
+  0051E968: 75 52                jne      0x51e9bc
+  0051E96A: 8b 8f c0 06 00 00    mov      ecx, dword ptr [edi + 0x6c0]
+  0051E970: 8a 81 c8 0e 00 00    mov      al, byte ptr [ecx + 0xec8]
+  0051E976: 84 c0                test     al, al
+  0051E978: 74 1a                je       0x51e994
+  0051E97A: 8b 87 c4 06 00 00    mov      eax, dword ptr [edi + 0x6c4]
+  0051E980: 83 f8 1b             cmp      eax, 0x1b
+  0051E983: 74 3c                je       0x51e9c1
+  0051E985: 83 f8 1c             cmp      eax, 0x1c
+  0051E988: 74 37                je       0x51e9c1
+  0051E98A: 83 f8 1d             cmp      eax, 0x1d
+  0051E98D: 74 32                je       0x51e9c1
+  0051E98F: 83 f8 1e             cmp      eax, 0x1e
+  0051E992: 74 2d                je       0x51e9c1
+  0051E994: 8b 17                mov      edx, dword ptr [edi]
+  0051E996: 56                   push     esi
+  0051E997: 6a 0f                push     0xf
+  0051E999: 8b cf                mov      ecx, edi
+  0051E99B: ff 92 78 02 00 00    call     dword ptr [edx + 0x278]
+  0051E9A1: 48                   dec      eax
+  0051E9A2: 74 11                je       0x51e9b5
+  0051E9A4: 83 e8 09             sub      eax, 9
+  0051E9A7: 75 18                jne      0x51e9c1
+  0051E9A9: eb 11                jmp      0x51e9bc
+  0051E9AB: bd 03 00 00 00       mov      ebp, 3
+  0051E9B0: e9 51 ff ff ff       jmp      0x51e906
+  0051E9B5: bd 03 00 00 00       mov      ebp, 3
+  0051E9BA: eb 05                jmp      0x51e9c1
+  0051E9BC: bd 1f 00 00 00       mov      ebp, 0x1f
+  0051E9C1: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051E9C7: e8 24 cd fe ff       call     0x50b6f0
+  0051E9CC: 84 c0                test     al, al
+  0051E9CE: 0f 84 85 00 00 00    je       0x51ea59
+  0051E9D4: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051E9DA: 8a 88 c2 0e 00 00    mov      cl, byte ptr [eax + 0xec2]
+  0051E9E0: 84 c9                test     cl, cl
+  0051E9E2: 75 0d                jne      0x51e9f1
+  0051E9E4: 6a 0e                push     0xe
+  0051E9E6: 8b cf                mov      ecx, edi
+  0051E9E8: e8 e3 e6 1e 00       call     0x70d0d0
+  0051E9ED: 84 c0                test     al, al
+  0051E9EF: 74 68                je       0x51ea59
+  0051E9F1: 83 fd 05             cmp      ebp, 5
+  0051E9F4: 75 63                jne      0x51ea59
+  0051E9F6: 8b 16                mov      edx, dword ptr [esi]
+  0051E9F8: 8b ce                mov      ecx, esi
+  0051E9FA: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051E9FD: 83 f8 06             cmp      eax, 6
+  0051EA00: 75 57                jne      0x51ea59
+  0051EA02: 8b 06                mov      eax, dword ptr [esi]
+  0051EA04: 8b ce                mov      ecx, esi
+  0051EA06: ff 90 80 00 00 00    call     dword ptr [eax + 0x80]  <<< C4 demo
+  0051EA0C: 84 c0                test     al, al
+  0051EA0E: 75 49                jne      0x51ea59
+  0051EA10: 85 f6                test     esi, esi
+  0051EA12: 0f 84 fd 00 00 00    je       0x51eb15
+  0051EA18: 8b 16                mov      edx, dword ptr [esi]
+  0051EA1A: 8b ce                mov      ecx, esi
+  0051EA1C: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051EA1F: 83 f8 06             cmp      eax, 6
+  0051EA22: 0f 85 ed 00 00 00    jne      0x51eb15
+  0051EA28: 8b b6 20 05 00 00    mov      esi, dword ptr [esi + 0x520]
+  0051EA2E: 8a 86 77 15 00 00    mov      al, byte ptr [esi + 0x1577]
+  0051EA34: 84 c0                test     al, al
+  0051EA36: 0f 84 d9 00 00 00    je       0x51eb15
+  0051EA3C: 8a 86 01 17 00 00    mov      al, byte ptr [esi + 0x1701]
+  0051EA42: 84 c0                test     al, al
+  0051EA44: 0f 85 cb 00 00 00    jne      0x51eb15
+  0051EA4A: 5f                   pop      edi
+  0051EA4B: 5e                   pop      esi
+  0051EA4C: 5d                   pop      ebp
+  0051EA4D: b8 10 00 00 00       mov      eax, 0x10
+  0051EA52: 5b                   pop      ebx
+  0051EA53: 83 c4 28             add      esp, 0x28
+  0051EA56: c2 08 00             ret      8
+  0051EA59: 8b 1f                mov      ebx, dword ptr [edi]
+  0051EA5B: 56                   push     esi
+  0051EA5C: 8b cf                mov      ecx, edi
+  0051EA5E: ff 93 e4 02 00 00    call     dword ptr [ebx + 0x2e4]
+  0051EA64: 50                   push     eax
+  0051EA65: 8b cf                mov      ecx, edi
+  0051EA67: ff 93 f8 03 00 00    call     dword ptr [ebx + 0x3f8]
+  0051EA6D: 8b 00                mov      eax, dword ptr [eax]
+  0051EA6F: 83 fd 05             cmp      ebp, 5
+  0051EA72: 0f 85 ac 00 00 00    jne      0x51eb24
+  0051EA78: 85 c0                test     eax, eax
+  0051EA7A: 0f 84 a4 00 00 00    je       0x51eb24
+  0051EA80: 8a 88 39 01 00 00    mov      cl, byte ptr [eax + 0x139]
+  0051EA86: 84 c9                test     cl, cl
+  0051EA88: 74 48                je       0x51ead2
+  0051EA8A: 85 f6                test     esi, esi
+  0051EA8C: 74 35                je       0x51eac3
+  0051EA8E: 8b 06                mov      eax, dword ptr [esi]
+  0051EA90: 8b ce                mov      ecx, esi
+  0051EA92: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051EA95: 83 f8 01             cmp      eax, 1
+  0051EA98: 75 29                jne      0x51eac3
+  0051EA9A: 8b 16                mov      edx, dword ptr [esi]
+  0051EA9C: 8b ce                mov      ecx, esi
+  0051EA9E: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051EAA1: 48                   dec      eax
+  0051EAA2: f7 d8                neg      eax
+  0051EAA4: 1b c0                sbb      eax, eax
+  0051EAA6: f7 d0                not      eax
+  0051EAA8: 23 c6                and      eax, esi
+  0051EAAA: 8b 88 e4 02 00 00    mov      ecx, dword ptr [eax + 0x2e4]
+  0051EAB0: 85 c9                test     ecx, ecx
+  0051EAB2: 74 0f                je       0x51eac3
+  0051EAB4: 5f                   pop      edi
+  0051EAB5: 5e                   pop      esi
+  0051EAB6: 5d                   pop      ebp
+  0051EAB7: b8 07 00 00 00       mov      eax, 7
+  0051EABC: 5b                   pop      ebx
+  0051EABD: 83 c4 28             add      esp, 0x28
+  0051EAC0: c2 08 00             ret      8
+  0051EAC3: 5f                   pop      edi
+  0051EAC4: 5e                   pop      esi
+  0051EAC5: 5d                   pop      ebp
+  0051EAC6: b8 40 00 00 00       mov      eax, 0x40
+  0051EACB: 5b                   pop      ebx
+  0051EACC: 83 c4 28             add      esp, 0x28
+  0051EACF: c2 08 00             ret      8
+  0051EAD2: 8a 88 3a 01 00 00    mov      cl, byte ptr [eax + 0x13a]
+  0051EAD8: 84 c9                test     cl, cl
+  0051EADA: 74 48                je       0x51eb24
+  0051EADC: 85 f6                test     esi, esi
+  0051EADE: 74 35                je       0x51eb15
+  0051EAE0: 8b 06                mov      eax, dword ptr [esi]
+  0051EAE2: 8b ce                mov      ecx, esi
+  0051EAE4: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051EAE7: 83 f8 06             cmp      eax, 6
+  0051EAEA: 75 29                jne      0x51eb15
+  0051EAEC: 8b b6 20 05 00 00    mov      esi, dword ptr [esi + 0x520]
+  0051EAF2: 8a 86 77 15 00 00    mov      al, byte ptr [esi + 0x1577]
+  0051EAF8: 84 c0                test     al, al
+  0051EAFA: 74 19                je       0x51eb15
+  0051EAFC: 8a 86 01 17 00 00    mov      al, byte ptr [esi + 0x1701]
+  0051EB02: 84 c0                test     al, al
+  0051EB04: 75 0f                jne      0x51eb15
+  0051EB06: 5f                   pop      edi
+  0051EB07: 5e                   pop      esi
+  0051EB08: 5d                   pop      ebp
+  0051EB09: b8 47 00 00 00       mov      eax, 0x47
+  0051EB0E: 5b                   pop      ebx
+  0051EB0F: 83 c4 28             add      esp, 0x28
+  0051EB12: c2 08 00             ret      8
+  0051EB15: 5f                   pop      edi
+  0051EB16: 5e                   pop      esi
+  0051EB17: 5d                   pop      ebp
+  0051EB18: b8 05 00 00 00       mov      eax, 5
+  0051EB1D: 5b                   pop      ebx
+  0051EB1E: 83 c4 28             add      esp, 0x28
+  0051EB21: c2 08 00             ret      8
+  0051EB24: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051EB2A: e8 c1 cb fe ff       call     0x50b6f0
+  0051EB2F: 84 c0                test     al, al
+  0051EB31: 74 4e                je       0x51eb81
+  0051EB33: 83 fd 05             cmp      ebp, 5
+  0051EB36: 75 49                jne      0x51eb81
+  0051EB38: 8b 8f c0 06 00 00    mov      ecx, dword ptr [edi + 0x6c0]
+  0051EB3E: 8a 81 ae 0e 00 00    mov      al, byte ptr [ecx + 0xeae]
+  0051EB44: 84 c0                test     al, al
+  0051EB46: 74 39                je       0x51eb81
+  0051EB48: 8b 16                mov      edx, dword ptr [esi]
+  0051EB4A: 8b ce                mov      ecx, esi
+  0051EB4C: ff 92 88 00 00 00    call     dword ptr [edx + 0x88]
+  0051EB52: 8a 88 2e 02 00 00    mov      cl, byte ptr [eax + 0x22e]
+  0051EB58: 84 c9                test     cl, cl
+  0051EB5A: 74 16                je       0x51eb72
+  0051EB5C: 8b 46 38             mov      eax, dword ptr [esi + 0x38]
+  0051EB5F: 85 c0                test     eax, eax
+  0051EB61: 75 0f                jne      0x51eb72
+  0051EB63: 5f                   pop      edi
+  0051EB64: 5e                   pop      esi
+  0051EB65: 5d                   pop      ebp
+  0051EB66: b8 35 00 00 00       mov      eax, 0x35
+  0051EB6B: 5b                   pop      ebx
+  0051EB6C: 83 c4 28             add      esp, 0x28
+  0051EB6F: c2 08 00             ret      8
+  0051EB72: 5f                   pop      edi
+  0051EB73: 5e                   pop      esi
+  0051EB74: 5d                   pop      ebp
+  0051EB75: b8 36 00 00 00       mov      eax, 0x36
+  0051EB7A: 5b                   pop      ebx
+  0051EB7B: 83 c4 28             add      esp, 0x28
+  0051EB7E: c2 08 00             ret      8
+  0051EB81: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051EB87: e8 64 cb fe ff       call     0x50b6f0
+  0051EB8C: 84 c0                test     al, al
+  0051EB8E: 0f 84 bd 00 00 00    je       0x51ec51
+  0051EB94: 8b 8f c0 06 00 00    mov      ecx, dword ptr [edi + 0x6c0]
+  0051EB9A: 8a 81 c8 0e 00 00    mov      al, byte ptr [ecx + 0xec8]
+  0051EBA0: 84 c0                test     al, al
+  0051EBA2: 0f 84 a9 00 00 00    je       0x51ec51
+  0051EBA8: 8b 87 c4 06 00 00    mov      eax, dword ptr [edi + 0x6c4]
+  0051EBAE: 83 f8 1b             cmp      eax, 0x1b
+  0051EBB1: 74 13                je       0x51ebc6
+  0051EBB3: 83 f8 1c             cmp      eax, 0x1c
+  0051EBB6: 74 0e                je       0x51ebc6
+  0051EBB8: 83 f8 1d             cmp      eax, 0x1d
+  0051EBBB: 74 09                je       0x51ebc6
+  0051EBBD: 83 f8 1e             cmp      eax, 0x1e
+  0051EBC0: 0f 85 8b 00 00 00    jne      0x51ec51
+  0051EBC6: 83 fd 01             cmp      ebp, 1
+  0051EBC9: 75 0f                jne      0x51ebda
+  0051EBCB: 5f                   pop      edi
+  0051EBCC: 5e                   pop      esi
+  0051EBCD: 5d                   pop      ebp
+  0051EBCE: b8 02 00 00 00       mov      eax, 2
+  0051EBD3: 5b                   pop      ebx
+  0051EBD4: 83 c4 28             add      esp, 0x28
+  0051EBD7: c2 08 00             ret      8
+  0051EBDA: 83 fd 05             cmp      ebp, 5
+  0051EBDD: 75 35                jne      0x51ec14
+  0051EBDF: 8a 81 ac 06 00 00    mov      al, byte ptr [ecx + 0x6ac]
+  0051EBE5: 84 c0                test     al, al
+  0051EBE7: 74 1c                je       0x51ec05
+  0051EBE9: 8b 07                mov      eax, dword ptr [edi]
+  0051EBEB: 6a 00                push     0
+  0051EBED: 8b cf                mov      ecx, edi
+  0051EBEF: ff 90 e4 02 00 00    call     dword ptr [eax + 0x2e4]
+  0051EBF5: 8b 17                mov      edx, dword ptr [edi]
+  0051EBF7: 50                   push     eax
+  0051EBF8: 56                   push     esi
+  0051EBF9: 8b cf                mov      ecx, edi
+  0051EBFB: ff 92 a8 03 00 00    call     dword ptr [edx + 0x3a8]
+  0051EC01: 84 c0                test     al, al
+  0051EC03: 75 4c                jne      0x51ec51
+  0051EC05: 5f                   pop      edi
+  0051EC06: 5e                   pop      esi
+  0051EC07: 5d                   pop      ebp
+  0051EC08: b8 02 00 00 00       mov      eax, 2
+  0051EC0D: 5b                   pop      ebx
+  0051EC0E: 83 c4 28             add      esp, 0x28
+  0051EC11: c2 08 00             ret      8
+  0051EC14: 83 fd 04             cmp      ebp, 4
+  0051EC17: 75 38                jne      0x51ec51
+  0051EC19: 8b cd                mov      ecx, ebp
+  0051EC1B: e8 90 91 11 00       call     0x637db0
+  0051EC20: 84 c0                test     al, al
+  0051EC22: 75 0f                jne      0x51ec33
+  0051EC24: 5f                   pop      edi
+  0051EC25: 5e                   pop      esi
+  0051EC26: 5d                   pop      ebp
+  0051EC27: b8 1e 00 00 00       mov      eax, 0x1e
+  0051EC2C: 5b                   pop      ebx
+  0051EC2D: 83 c4 28             add      esp, 0x28
+  0051EC30: c2 08 00             ret      8
+  0051EC33: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051EC39: 83 b8 c4 06 00 00 ff cmp      dword ptr [eax + 0x6c4], -1
+  0051EC40: 7e 0f                jle      0x51ec51
+  0051EC42: 5f                   pop      edi
+  0051EC43: 5e                   pop      esi
+  0051EC44: 5d                   pop      ebp
+  0051EC45: b8 1e 00 00 00       mov      eax, 0x1e
+  0051EC4A: 5b                   pop      ebx
+  0051EC4B: 83 c4 28             add      esp, 0x28
+  0051EC4E: c2 08 00             ret      8
+  0051EC51: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051EC57: e8 94 ca fe ff       call     0x50b6f0
+  0051EC5C: 84 c0                test     al, al
+  0051EC5E: 74 3a                je       0x51ec9a
+  0051EC60: 83 fd 04             cmp      ebp, 4
+  0051EC63: 0f 85 9e 00 00 00    jne      0x51ed07
+  0051EC69: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051EC6F: 8a 88 c8 0e 00 00    mov      cl, byte ptr [eax + 0xec8]
+  0051EC75: 84 c9                test     cl, cl
+  0051EC77: 74 26                je       0x51ec9f
+  0051EC79: 83 b8 c4 06 00 00 ff cmp      dword ptr [eax + 0x6c4], -1
+  0051EC80: 7e 1d                jle      0x51ec9f
+  0051EC82: 83 bf c4 06 00 00 1f cmp      dword ptr [edi + 0x6c4], 0x1f
+  0051EC89: 75 14                jne      0x51ec9f
+  0051EC8B: 5f                   pop      edi
+  0051EC8C: 5e                   pop      esi
+  0051EC8D: 5d                   pop      ebp
+  0051EC8E: b8 1e 00 00 00       mov      eax, 0x1e
+  0051EC93: 5b                   pop      ebx
+  0051EC94: 83 c4 28             add      esp, 0x28
+  0051EC97: c2 08 00             ret      8
+  0051EC9A: 83 fd 04             cmp      ebp, 4
+  0051EC9D: 75 68                jne      0x51ed07
+  0051EC9F: b9 04 00 00 00       mov      ecx, 4
+  0051ECA4: e8 07 91 11 00       call     0x637db0
+  0051ECA9: 84 c0                test     al, al
+  0051ECAB: 74 53                je       0x51ed00
+  0051ECAD: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051ECB3: e8 38 ca fe ff       call     0x50b6f0
+  0051ECB8: 84 c0                test     al, al
+  0051ECBA: 75 04                jne      0x51ecc0
+  0051ECBC: 33 ed                xor      ebp, ebp
+  0051ECBE: eb 50                jmp      0x51ed10
+  0051ECC0: 8b 17                mov      edx, dword ptr [edi]
+  0051ECC2: 8b cf                mov      ecx, edi
+  0051ECC4: ff 92 f0 03 00 00    call     dword ptr [edx + 0x3f0]
+  0051ECCA: 83 38 00             cmp      dword ptr [eax], 0
+  0051ECCD: 74 1d                je       0x51ecec
+  0051ECCF: 8b 07                mov      eax, dword ptr [edi]
+  0051ECD1: 8b cf                mov      ecx, edi
+  0051ECD3: ff 90 f0 03 00 00    call     dword ptr [eax + 0x3f0]
+  0051ECD9: 8b 08                mov      ecx, dword ptr [eax]
+  0051ECDB: 8a 81 50 01 00 00    mov      al, byte ptr [ecx + 0x150]
+  0051ECE1: 84 c0                test     al, al
+  0051ECE3: 74 07                je       0x51ecec
+  0051ECE5: bd 34 00 00 00       mov      ebp, 0x34
+  0051ECEA: eb 24                jmp      0x51ed10
+  0051ECEC: 8b 97 c0 06 00 00    mov      edx, dword ptr [edi + 0x6c0]
+  0051ECF2: 8a 82 c8 0e 00 00    mov      al, byte ptr [edx + 0xec8]
+  0051ECF8: 84 c0                test     al, al
+  0051ECFA: 75 14                jne      0x51ed10
+  0051ECFC: 33 ed                xor      ebp, ebp
+  0051ECFE: eb 10                jmp      0x51ed10
+  0051ED00: bd 1e 00 00 00       mov      ebp, 0x1e
+  0051ED05: eb 09                jmp      0x51ed10
+  0051ED07: 83 fd 1f             cmp      ebp, 0x1f
+  0051ED0A: 0f 84 2b 01 00 00    je       0x51ee3b
+  0051ED10: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051ED16: 56                   push     esi
+  0051ED17: e8 74 ad fd ff       call     0x4f9a90
+  0051ED1C: 84 c0                test     al, al
+  0051ED1E: 0f 84 17 01 00 00    je       0x51ee3b
+  0051ED24: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051ED2A: e8 c1 c9 fe ff       call     0x50b6f0
+  0051ED2F: 84 c0                test     al, al
+  0051ED31: 0f 84 04 01 00 00    je       0x51ee3b
+  0051ED37: 8b ce                mov      ecx, esi
+  0051ED39: e8 e2 ef ee ff       call     0x40dd20
+  0051ED3E: 85 c0                test     eax, eax
+  0051ED40: 0f 84 f5 00 00 00    je       0x51ee3b
+  0051ED46: 8b 06                mov      eax, dword ptr [esi]
+  0051ED48: 8b ce                mov      ecx, esi
+  0051ED4A: ff 90 d4 01 00 00    call     dword ptr [eax + 0x1d4]
+  0051ED50: 84 c0                test     al, al
+  0051ED52: 0f 85 e3 00 00 00    jne      0x51ee3b
+  0051ED58: 8b 16                mov      edx, dword ptr [esi]
+  0051ED5A: 8b ce                mov      ecx, esi
+  0051ED5C: ff 92 d8 01 00 00    call     dword ptr [edx + 0x1d8]
+  0051ED62: 84 c0                test     al, al
+  0051ED64: 0f 85 d1 00 00 00    jne      0x51ee3b
+  0051ED6A: 83 fd 05             cmp      ebp, 5
+  0051ED6D: 0f 84 c8 00 00 00    je       0x51ee3b
+  0051ED73: 83 fd 1a             cmp      ebp, 0x1a
+  0051ED76: 0f 84 bf 00 00 00    je       0x51ee3b
+  0051ED7C: 8b 06                mov      eax, dword ptr [esi]
+  0051ED7E: 8b ce                mov      ecx, esi
+  0051ED80: ff 90 84 00 00 00    call     dword ptr [eax + 0x84]
+  0051ED86: 85 c0                test     eax, eax
+  0051ED88: 0f 84 ad 00 00 00    je       0x51ee3b
+  0051ED8E: 8b 88 e0 05 00 00    mov      ecx, dword ptr [eax + 0x5e0]
+  0051ED94: 85 c9                test     ecx, ecx
+  0051ED96: 0f 8e 9f 00 00 00    jle      0x51ee3b
+  0051ED9C: 8b 17                mov      edx, dword ptr [edi]
+  0051ED9E: 8b cf                mov      ecx, edi
+  0051EDA0: ff 92 a0 00 00 00    call     dword ptr [edx + 0xa0]
+  0051EDA6: 84 c0                test     al, al
+  0051EDA8: 0f 84 8d 00 00 00    je       0x51ee3b
+  0051EDAE: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051EDB4: 8a 88 6a 0d 00 00    mov      cl, byte ptr [eax + 0xd6a]
+  0051EDBA: 84 c9                test     cl, cl
+  0051EDBC: 74 07                je       0x51edc5
+  0051EDBE: bd 1f 00 00 00       mov      ebp, 0x1f
+  0051EDC3: eb 76                jmp      0x51ee3b
+  0051EDC5: 85 f6                test     esi, esi
+  0051EDC7: 74 51                je       0x51ee1a
+  0051EDC9: 8a 4e 14             mov      cl, byte ptr [esi + 0x14]
+  0051EDCC: c0 e9 02             shr      cl, 2
+  0051EDCF: 80 e1 01             and      cl, 1
+  0051EDD2: 88 4c 24 40          mov      byte ptr [esp + 0x40], cl
+  0051EDD6: 74 42                je       0x51ee1a
+  0051EDD8: 8b 86 d4 05 00 00    mov      eax, dword ptr [esi + 0x5d4]
+  0051EDDE: 85 c0                test     eax, eax
+  0051EDE0: 74 0d                je       0x51edef
+  0051EDE2: 8b 50 24             mov      edx, dword ptr [eax + 0x24]
+  0051EDE5: 8a 82 a4 00 00 00    mov      al, byte ptr [edx + 0xa4]
+  0051EDEB: 84 c0                test     al, al
+  0051EDED: 74 24                je       0x51ee13
+  0051EDEF: 8b 86 74 06 00 00    mov      eax, dword ptr [esi + 0x674]
+  0051EDF5: 85 c0                test     eax, eax
+  0051EDF7: 75 0a                jne      0x51ee03
+  0051EDF9: 68 03 40 00 80       push     0x80004003
+  0051EDFE: e8 1d d9 2b 00       call     0x7dc720
+  0051EE03: 8b 86 74 06 00 00    mov      eax, dword ptr [esi + 0x674]
+  0051EE09: 50                   push     eax
+  0051EE0A: 8b 08                mov      ecx, dword ptr [eax]
+  0051EE0C: ff 51 10             call     dword ptr [ecx + 0x10]
+  0051EE0F: 84 c0                test     al, al
+  0051EE11: 74 07                je       0x51ee1a
+  0051EE13: bd 1f 00 00 00       mov      ebp, 0x1f
+  0051EE18: eb 21                jmp      0x51ee3b
+  0051EE1A: 8b 17                mov      edx, dword ptr [edi]
+  0051EE1C: 56                   push     esi
+  0051EE1D: 6a 0f                push     0xf
+  0051EE1F: 8b cf                mov      ecx, edi
+  0051EE21: ff 92 78 02 00 00    call     dword ptr [edx + 0x278]
+  0051EE27: 48                   dec      eax
+  0051EE28: 74 0c                je       0x51ee36
+  0051EE2A: 83 e8 09             sub      eax, 9
+  0051EE2D: 75 0c                jne      0x51ee3b
+  0051EE2F: bd 1f 00 00 00       mov      ebp, 0x1f
+  0051EE34: eb 05                jmp      0x51ee3b
+  0051EE36: bd 03 00 00 00       mov      ebp, 3
+  0051EE3B: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051EE41: e8 aa c8 fe ff       call     0x50b6f0
+  0051EE46: 84 c0                test     al, al
+  0051EE48: 0f 84 47 02 00 00    je       0x51f095
+  0051EE4E: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051EE54: 8a 88 be 0e 00 00    mov      cl, byte ptr [eax + 0xebe]
+  0051EE5A: 84 c9                test     cl, cl
+  0051EE5C: 0f 84 33 02 00 00    je       0x51f095
+  0051EE62: 83 fd 05             cmp      ebp, 5  <<< HOOK 1: MouseOverObject (our hook)
+  0051EE65: 0f 85 44 02 00 00    jne      0x51f0af
+  0051EE6B: 8a 88 c4 0e 00 00    mov      cl, byte ptr [eax + 0xec4]
+  0051EE71: 84 c9                test     cl, cl
+  0051EE73: 75 2c                jne      0x51eea1
+  0051EE75: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051EE7B: 56                   push     esi
+  0051EE7C: e8 0f ac fd ff       call     0x4f9a90
+  0051EE81: 84 c0                test     al, al
+  0051EE83: 75 1c                jne      0x51eea1
+  0051EE85: 8b 06                mov      eax, dword ptr [esi]
+  0051EE87: 8b ce                mov      ecx, esi
+  0051EE89: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051EE8C: 83 f8 06             cmp      eax, 6
+  0051EE8F: 75 10                jne      0x51eea1
+  0051EE91: 8b 8e 20 05 00 00    mov      ecx, dword ptr [esi + 0x520]
+  0051EE97: 8a 81 72 15 00 00    mov      al, byte ptr [ecx + 0x1572]
+  0051EE9D: 84 c0                test     al, al
+  0051EE9F: 75 4c                jne      0x51eeed
+  0051EEA1: 8b 97 c0 06 00 00    mov      edx, dword ptr [edi + 0x6c0]
+  0051EEA7: 8a 82 c4 0e 00 00    mov      al, byte ptr [edx + 0xec4]
+  0051EEAD: 84 c0                test     al, al
+  0051EEAF: 0f 84 99 01 00 00    je       0x51f04e
+  0051EEB5: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051EEBB: 56                   push     esi
+  0051EEBC: e8 cf ab fd ff       call     0x4f9a90
+  0051EEC1: 84 c0                test     al, al
+  0051EEC3: 0f 85 85 01 00 00    jne      0x51f04e
+  0051EEC9: 8b 06                mov      eax, dword ptr [esi]
+  0051EECB: 8b ce                mov      ecx, esi
+  0051EECD: ff 50 2c             call     dword ptr [eax + 0x2c]
+  0051EED0: 83 f8 06             cmp      eax, 6
+  0051EED3: 0f 85 75 01 00 00    jne      0x51f04e
+  0051EED9: 8b 8e 20 05 00 00    mov      ecx, dword ptr [esi + 0x520]
+  0051EEDF: 8a 81 76 15 00 00    mov      al, byte ptr [ecx + 0x1576]
+  0051EEE5: 84 c0                test     al, al
+  0051EEE7: 0f 84 61 01 00 00    je       0x51f04e
+  0051EEED: 8b 16                mov      edx, dword ptr [esi]  <<< SkipToInfiltrationSetup target
+  0051EEEF: bd 09 00 00 00       mov      ebp, 9
+  0051EEF4: 8b ce                mov      ecx, esi
+  0051EEF6: 89 6c 24 20          mov      dword ptr [esp + 0x20], ebp
+  0051EEFA: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051EEFD: 83 f8 06             cmp      eax, 6
+  0051EF00: 0f 85 58 01 00 00    jne      0x51f05e
+  0051EF06: 8b 06                mov      eax, dword ptr [esi]
+  0051EF08: 8d 4c 24 2c          lea      ecx, [esp + 0x2c]
+  0051EF0C: 51                   push     ecx
+  0051EF0D: 8b ce                mov      ecx, esi
+  0051EF0F: ff 50 48             call     dword ptr [eax + 0x48]
+  0051EF12: 8b c8                mov      ecx, eax
+  0051EF14: 8b 01                mov      eax, dword ptr [ecx]
+  0051EF16: 99                   cdq      
+  0051EF17: 81 e2 ff 00 00 00    and      edx, 0xff
+  0051EF1D: 03 c2                add      eax, edx
+  0051EF1F: c1 f8 08             sar      eax, 8
+  0051EF22: 66 89 44 24 14       mov      word ptr [esp + 0x14], ax
+  0051EF27: 8b 41 04             mov      eax, dword ptr [ecx + 4]
+  0051EF2A: 99                   cdq      
+  0051EF2B: 81 e2 ff 00 00 00    and      edx, 0xff
+  0051EF31: 03 c2                add      eax, edx
+  0051EF33: 8a 97 8c 00 00 00    mov      dl, byte ptr [edi + 0x8c]
+  0051EF39: c1 f8 08             sar      eax, 8
+  0051EF3C: 66 89 44 24 16       mov      word ptr [esp + 0x16], ax
+  0051EF41: 8b 87 c0 06 00 00    mov      eax, dword ptr [edi + 0x6c0]
+  0051EF47: 52                   push     edx
+  0051EF48: 8b 17                mov      edx, dword ptr [edi]
+  0051EF4A: 8b 88 b4 05 00 00    mov      ecx, dword ptr [eax + 0x5b4]
+  0051EF50: 8d 44 24 44          lea      eax, [esp + 0x44]
+  0051EF54: 51                   push     ecx
+  0051EF55: 50                   push     eax
+  0051EF56: 8b cf                mov      ecx, edi
+  0051EF58: ff 92 c0 01 00 00    call     dword ptr [edx + 0x1c0]
+  0051EF5E: 50                   push     eax
+  0051EF5F: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  0051EF64: e8 c7 e2 04 00       call     0x56d230
+  0051EF69: 8b 8e 20 05 00 00    mov      ecx, dword ptr [esi + 0x520]
+  0051EF6F: 6a 00                push     0
+  0051EF71: 89 44 24 2c          mov      dword ptr [esp + 0x2c], eax
+  0051EF75: 8b 11                mov      edx, dword ptr [ecx]
+  0051EF77: ff 92 90 00 00 00    call     dword ptr [edx + 0x90]
+  0051EF7D: 89 44 24 3c          mov      dword ptr [esp + 0x3c], eax
+  0051EF81: c6 44 24 40 00       mov      byte ptr [esp + 0x40], 0
+  0051EF86: 8b 44 24 3c          mov      eax, dword ptr [esp + 0x3c]
+  0051EF8A: 66 81 38 ff 7f       cmp      word ptr [eax], 0x7fff
+  0051EF8F: 75 0c                jne      0x51ef9d
+  0051EF91: 66 81 78 02 ff 7f    cmp      word ptr [eax + 2], 0x7fff
+  0051EF97: 0f 84 c1 00 00 00    je       0x51f05e
+  0051EF9D: 8a 44 24 40          mov      al, byte ptr [esp + 0x40]
+  0051EFA1: 84 c0                test     al, al
+  0051EFA3: 0f 85 b5 00 00 00    jne      0x51f05e
+  0051EFA9: 8b 4c 24 3c          mov      ecx, dword ptr [esp + 0x3c]
+  0051EFAD: 66 8b 6c 24 14       mov      bp, word ptr [esp + 0x14]
+  0051EFB2: 8b c1                mov      eax, ecx
+  0051EFB4: 83 c1 04             add      ecx, 4
+  0051EFB7: 89 4c 24 3c          mov      dword ptr [esp + 0x3c], ecx
+  0051EFBB: c7 44 24 18 00 00 00 00 mov      dword ptr [esp + 0x18], 0
+  0051EFC3: 66 8b 58 02          mov      bx, word ptr [eax + 2]
+  0051EFC7: 66 03 28             add      bp, word ptr [eax]
+  0051EFCA: 66 03 5c 24 16       add      bx, word ptr [esp + 0x16]
+  0051EFCF: 8b 44 24 18          mov      eax, dword ptr [esp + 0x18]
+  0051EFD3: 6a 00                push     0
+  0051EFD5: 83 e0 07             and      eax, 7
+  0051EFD8: 66 8b 0c 85 88 f6 89 00 mov      cx, word ptr [eax*4 + 0x89f688]
+  0051EFE0: 66 8b 14 85 8a f6 89 00 mov      dx, word ptr [eax*4 + 0x89f68a]
+  0051EFE8: 8d 04 85 88 f6 89 00 lea      eax, [eax*4 + 0x89f688]
+  0051EFEF: 66 03 cd             add      cx, bp
+  0051EFF2: 66 03 d3             add      dx, bx
+  0051EFF5: 66 89 4c 24 20       mov      word ptr [esp + 0x20], cx
+  0051EFFA: 8b 8f c0 06 00 00    mov      ecx, dword ptr [edi + 0x6c0]
+  0051F000: 66 89 54 24 22       mov      word ptr [esp + 0x22], dx
+  0051F005: 8b 44 24 20          mov      eax, dword ptr [esp + 0x20]
+  0051F009: 89 44 24 28          mov      dword ptr [esp + 0x28], eax
+  0051F00D: 8b 91 b4 05 00 00    mov      edx, dword ptr [ecx + 0x5b4]
+  0051F013: 8d 44 24 28          lea      eax, [esp + 0x28]
+  0051F017: 52                   push     edx
+  0051F018: 50                   push     eax
+  0051F019: b9 e8 f7 87 00       mov      ecx, 0x87f7e8
+  0051F01E: e8 0d e2 04 00       call     0x56d230
+  0051F023: 3b 44 24 28          cmp      eax, dword ptr [esp + 0x28]
+  0051F027: 74 17                je       0x51f040
+  0051F029: 8b 44 24 18          mov      eax, dword ptr [esp + 0x18]
+  0051F02D: 40                   inc      eax
+  0051F02E: 83 f8 08             cmp      eax, 8
+  0051F031: 89 44 24 18          mov      dword ptr [esp + 0x18], eax
+  0051F035: 7c 98                jl       0x51efcf
+  0051F037: 8b 6c 24 20          mov      ebp, dword ptr [esp + 0x20]
+  0051F03B: e9 46 ff ff ff       jmp      0x51ef86
+  0051F040: 8b 6c 24 20          mov      ebp, dword ptr [esp + 0x20]
+  0051F044: c6 44 24 40 01       mov      byte ptr [esp + 0x40], 1
+  0051F049: e9 38 ff ff ff       jmp      0x51ef86
+  0051F04E: 8b 17                mov      edx, dword ptr [edi]
+  0051F050: 8b cf                mov      ecx, edi
+  0051F052: ff 92 ac 02 00 00    call     dword ptr [edx + 0x2ac]
+  0051F058: 84 c0                test     al, al
+  0051F05A: 75 3e                jne      0x51f09a
+  0051F05C: 33 ed                xor      ebp, ebp
+  0051F05E: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051F064: e8 87 c6 fe ff       call     0x50b6f0
+  0051F069: 84 c0                test     al, al
+  0051F06B: 0f 84 a3 00 00 00    je       0x51f114
+  0051F071: 85 ed                test     ebp, ebp
+  0051F073: 0f 85 9b 00 00 00    jne      0x51f114
+  0051F079: 8b 07                mov      eax, dword ptr [edi]
+  0051F07B: 8b cf                mov      ecx, edi
+  0051F07D: ff 90 a0 00 00 00    call     dword ptr [eax + 0xa0]
+  0051F083: 84 c0                test     al, al
+  0051F085: 0f 84 f3 00 00 00    je       0x51f17e
+  0051F08B: bd 02 00 00 00       mov      ebp, 2
+  0051F090: e9 84 00 00 00       jmp      0x51f119
+  0051F095: 83 fd 05             cmp      ebp, 5
+  0051F098: 75 15                jne      0x51f0af
+  0051F09A: 8b 07                mov      eax, dword ptr [edi]
+  0051F09C: 8b cf                mov      ecx, edi
+  0051F09E: ff 90 ac 02 00 00    call     dword ptr [eax + 0x2ac]
+  0051F0A4: 84 c0                test     al, al
+  0051F0A6: 75 b6                jne      0x51f05e
+  0051F0A8: bd 3b 00 00 00       mov      ebp, 0x3b
+  0051F0AD: eb af                jmp      0x51f05e
+  0051F0AF: 83 fd 07             cmp      ebp, 7  <<< 'grinding area' (non-attack branch)
+  0051F0B2: 75 aa                jne      0x51f05e
+  0051F0B4: 8b 16                mov      edx, dword ptr [esi]
+  0051F0B6: 8b ce                mov      ecx, esi
+  0051F0B8: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051F0BB: 83 f8 06             cmp      eax, 6
+  0051F0BE: 75 9e                jne      0x51f05e
+  0051F0C0: 8b 8f 1c 02 00 00    mov      ecx, dword ptr [edi + 0x21c]
+  0051F0C6: e8 25 c6 fe ff       call     0x50b6f0
+  0051F0CB: 84 c0                test     al, al
+  0051F0CD: 74 8f                je       0x51f05e
+  0051F0CF: 8b 06                mov      eax, dword ptr [esi]
+  0051F0D1: 8b ce                mov      ecx, esi
+  0051F0D3: ff 90 80 00 00 00    call     dword ptr [eax + 0x80]
+  0051F0D9: 84 c0                test     al, al
+  0051F0DB: 75 81                jne      0x51f05e
+  0051F0DD: 8b 8e 20 05 00 00    mov      ecx, dword ptr [esi + 0x520]
+  0051F0E3: 8a 81 ad 16 00 00    mov      al, byte ptr [ecx + 0x16ad]
+  0051F0E9: 84 c0                test     al, al
+  0051F0EB: 0f 84 6d ff ff ff    je       0x51f05e
+  0051F0F1: 8b 16                mov      edx, dword ptr [esi]
+  0051F0F3: 8b ce                mov      ecx, esi
+  0051F0F5: ff 52 3c             call     dword ptr [edx + 0x3c]
+  0051F0F8: 8b 3d 4c 3d a8 00    mov      edi, dword ptr [0xa83d4c]
+  0051F0FE: 2b c7                sub      eax, edi
+  0051F100: 5f                   pop      edi
+  0051F101: f7 d8                neg      eax
+  0051F103: 1b c0                sbb      eax, eax
+  0051F105: 5e                   pop      esi
+  0051F106: 83 e0 14             and      eax, 0x14
+  0051F109: 5d                   pop      ebp
+  0051F10A: 83 c0 0b             add      eax, 0xb
+  0051F10D: 5b                   pop      ebx
+  0051F10E: 83 c4 28             add      esp, 0x28
+  0051F111: c2 08 00             ret      8
+  0051F114: 83 fd 02             cmp      ebp, 2
+  0051F117: 75 47                jne      0x51f160
+  0051F119: 8b 16                mov      edx, dword ptr [esi]
+  0051F11B: 8b ce                mov      ecx, esi
+  0051F11D: ff 92 c4 00 00 00    call     dword ptr [edx + 0xc4]
+  0051F123: 84 c0                test     al, al
+  0051F125: 74 57                je       0x51f17e
+  0051F127: 8b 06                mov      eax, dword ptr [esi]
+  0051F129: 6a 01                push     1
+  0051F12B: 8b ce                mov      ecx, esi
+  0051F12D: ff 90 d0 00 00 00    call     dword ptr [eax + 0xd0]
+  0051F133: 85 c0                test     eax, eax
+  0051F135: 75 47                jne      0x51f17e
+  0051F137: 8b 16                mov      edx, dword ptr [esi]
+  0051F139: 6a 01                push     1
+  0051F13B: 8b ce                mov      ecx, esi
+  0051F13D: ff 92 cc 00 00 00    call     dword ptr [edx + 0xcc]
+  0051F143: 8b 10                mov      edx, dword ptr [eax]
+  0051F145: 8b c8                mov      ecx, eax
+  0051F147: ff 52 2c             call     dword ptr [edx + 0x2c]
+  0051F14A: 83 f8 15             cmp      eax, 0x15
+  0051F14D: 75 2f                jne      0x51f17e
+  0051F14F: bd 01 00 00 00       mov      ebp, 1
+  0051F154: 5f                   pop      edi
+  0051F155: 8b c5                mov      eax, ebp
+  0051F157: 5e                   pop      esi
+  0051F158: 5d                   pop      ebp
+  0051F159: 5b                   pop      ebx
+  0051F15A: 83 c4 28             add      esp, 0x28
+  0051F15D: c2 08 00             ret      8
+  0051F160: 83 fd 05             cmp      ebp, 5
+  0051F163: 75 19                jne      0x51f17e
+  0051F165: 8b 06                mov      eax, dword ptr [esi]
+  0051F167: 8b ce                mov      ecx, esi
+  0051F169: ff 90 88 00 00 00    call     dword ptr [eax + 0x88]
+  0051F16F: 8a 88 33 02 00 00    mov      cl, byte ptr [eax + 0x233]
+  0051F175: 84 c9                test     cl, cl
+  0051F177: 74 05                je       0x51f17e
+  0051F179: bd 02 00 00 00       mov      ebp, 2
+  0051F17E: 5f                   pop      edi
+  0051F17F: 8b c5                mov      eax, ebp
+  0051F181: 5e                   pop      esi
+  0051F182: 5d                   pop      ebp
+  0051F183: 5b                   pop      ebx
+  0051F184: 83 c4 28             add      esp, 0x28
+  0051F187: c2 08 00             ret      8
+  0051F18A: 90                   nop      
+  0051F18B: 90                   nop      
+  0051F18C: 90                   nop      
+  0051F18D: 90                   nop      
+  0051F18E: 90                   nop      
+  0051F18F: 90                   nop      
+  0051F190: 55                   push     ebp
+  0051F191: 8b 6c 24 10          mov      ebp, dword ptr [esp + 0x10]
+  0051F195: 56                   push     esi
+  0051F196: 8b f1                mov      esi, ecx
+  0051F198: 57                   push     edi
+  0051F199: 8b 7c 24 14          mov      edi, dword ptr [esp + 0x14]
+  0051F19D: 8b 06                mov      eax, dword ptr [esi]
+  0051F19F: 55                   push     ebp
+  0051F1A0: 57                   push     edi
+  0051F1A1: ff 50 74             call     dword ptr [eax + 0x74]
+  0051F1A4: 8d 48 ff             lea      ecx, [eax - 1]
+  0051F1A7: 83 f9 38             cmp      ecx, 0x38
+  0051F1AA: 77 1b                ja       0x51f1c7
+  0051F1AC: 33 d2                xor      edx, edx
+  0051F1AE: 8a 91 0c f2 51 00    mov      dl, byte ptr [ecx + 0x51f20c]
+  0051F1B4: ff 24 95 fc f1 51 00 jmp      dword ptr [edx*4 + 0x51f1fc]
+  0051F1BB: b8 09 00 00 00       mov      eax, 9
+  0051F1C0: eb 05                jmp      0x51f1c7
+  0051F1C2: b8 05 00 00 00       mov      eax, 5
+  0051F1C7: 3b fe                cmp      edi, esi
+  0051F1C9: 75 0d                jne      0x51f1d8
+  0051F1CB: 83 f8 05             cmp      eax, 5
+  0051F1CE: 75 08                jne      0x51f1d8
+  0051F1D0: 5f                   pop      edi
+  0051F1D1: 5e                   pop      esi
+  0051F1D2: 32 c0                xor      al, al
+  0051F1D4: 5d                   pop      ebp
+  0051F1D5: c2 0c 00             ret      0xc
+  0051F1D8: 8a 8e 98 02 00 00    mov      cl, byte ptr [esi + 0x298]
+  0051F1DE: 84 c9                test     cl, cl
+  0051F1E0: 74 08                je       0x51f1ea
+  0051F1E2: 5f                   pop      edi
+  0051F1E3: 5e                   pop      esi
+  0051F1E4: 32 c0                xor      al, al
+  0051F1E6: 5d                   pop      ebp
+  0051F1E7: c2 0c 00             ret      0xc
+  0051F1EA: 55                   push     ebp
+  0051F1EB: 57                   push     edi
+  0051F1EC: 50                   push     eax
+  0051F1ED: 8b ce                mov      ecx, esi
+  0051F1EF: e8 ec 82 fb ff       call     0x4d74e0
+  0051F1F4: 5f                   pop      edi
+  0051F1F5: 5e                   pop      esi
+  0051F1F6: 5d                   pop      ebp
+  0051F1F7: c2 0c 00             ret      0xc
+  0051F1FA: 8b ff                mov      edi, edi
