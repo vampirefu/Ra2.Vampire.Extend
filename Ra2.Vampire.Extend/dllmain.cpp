@@ -15,8 +15,10 @@ using byte = unsigned char;
 #include <InfantryClass.h>
 #include <BuildingClass.h>
 #include <CellClass.h>
+#include <EventClass.h>
 #include <HouseClass.h>
 #include <RulesClass.h>
+#include <WaypointPathClass.h>
 #include <Helpers/Macro.h>
 #include <Helpers/Cast.h>
 
@@ -36,7 +38,7 @@ using byte = unsigned char;
 // 钩子点：
 //   1. 0x51EE4E - InfantryClass::MouseOverObject   (鼠标光标动作判定)
 //   2. 0x4D4B20 - FootClass::Mission_Capture       (Phobos前重新激活目的地)
-//   3. 0x519FF8 - InfantryClass::UpdatePosition    (到达后触发渗透)
+//   3. 0x519B58 - InfantryClass::UpdatePosition    (到达后触发渗透)
 // ===========================================================================
 
 #ifdef _DEBUG
@@ -104,8 +106,8 @@ static bool IsSpySelfStealScenario(InfantryClass* pThis, BuildingClass* pBuildin
     if (!pThis || !pBuilding)
         return false;
 
-    // 必须是间谍类型
-    if (!pThis->Type || !pThis->Type->Infiltrate)
+    // 必须是严格间谍类型
+    if (!IsCandidateSpy(pThis))
         return false;
 
     // 建筑必须可被渗透
@@ -117,6 +119,203 @@ static bool IsSpySelfStealScenario(InfantryClass* pThis, BuildingClass* pBuildin
         return false;
 
     return true;
+}
+
+// ---------------------------------------------------------------------------
+// 仅在消耗包含实际路径点的规划 Capture 节点时授权自偷。
+// 授权绑定到单个间谍和单个建筑，并在渗透时一次性消耗。
+// ---------------------------------------------------------------------------
+static InfantryClass* g_SpySelfSteal_AuthorizedInfantry = nullptr;
+static BuildingClass* g_SpySelfSteal_AuthorizedBuilding = nullptr;
+static InfantryClass* g_SpySelfSteal_PendingInfantry = nullptr;
+static BuildingClass* g_SpySelfSteal_PendingBuilding = nullptr;
+
+static void ClearSpySelfStealAuthorization()
+{
+    g_SpySelfSteal_AuthorizedInfantry = nullptr;
+    g_SpySelfSteal_AuthorizedBuilding = nullptr;
+}
+
+static bool IsSpySelfStealAuthorized(InfantryClass* pThis, BuildingClass* pBuilding)
+{
+    return g_SpySelfSteal_AuthorizedInfantry == pThis
+        && g_SpySelfSteal_AuthorizedBuilding == pBuilding;
+}
+
+static void AuthorizeSpySelfStealPlanningPath(FootClass* pThis)
+{
+    if (!pThis
+        || pThis->WhatAmI() != AbstractType::Infantry
+        || !pThis->PlanningToken
+        || pThis->PlanningToken->PlanningNodes.Count < 2)
+        return;
+
+    auto const pSpy = static_cast<InfantryClass*>(pThis);
+    if (pSpy != g_SpySelfSteal_PendingInfantry
+        || !IsSpySelfStealScenario(pSpy, g_SpySelfSteal_PendingBuilding))
+        return;
+
+    g_SpySelfSteal_AuthorizedInfantry = pSpy;
+    g_SpySelfSteal_AuthorizedBuilding = g_SpySelfSteal_PendingBuilding;
+    VAMP_LOG("Planning path: authorized spy self-steal this=%p building=%p nodes=%d",
+        pSpy,
+        g_SpySelfSteal_AuthorizedBuilding,
+        pThis->PlanningToken->PlanningNodes.Count);
+}
+
+static void PrepareSpySelfStealFinalPlanningNode(FootClass* pThis)
+{
+    if (!pThis
+        || pThis->WhatAmI() != AbstractType::Infantry
+        || !pThis->PlanningToken
+        || pThis->PlanningToken->PlanningNodes.Count != 1)
+        return;
+
+    auto const pSpy = static_cast<InfantryClass*>(pThis);
+    auto const pBuilding = g_SpySelfSteal_AuthorizedBuilding;
+    if (pSpy->Target
+        || !pBuilding
+        || pBuilding->IsStrange()
+        || !IsSpySelfStealAuthorized(pSpy, pBuilding)
+        || !IsSpySelfStealScenario(pSpy, pBuilding))
+    {
+        VAMP_LOG(
+            "Planning path: final spy Capture node rejected this=%p target=%p destination=%p building=%p strange=%d authorized=%d scenario=%d",
+            pSpy,
+            pSpy->Target,
+            pSpy->Destination,
+            pBuilding,
+            pBuilding ? pBuilding->IsStrange() : 0,
+            pBuilding ? IsSpySelfStealAuthorized(pSpy, pBuilding) : 0,
+            pBuilding ? IsSpySelfStealScenario(pSpy, pBuilding) : 0);
+        return;
+    }
+
+    VAMP_LOG("Planning path: preparing final spy Capture node this=%p building=%p", pSpy, pBuilding);
+    pSpy->SetTarget(pBuilding);
+    pSpy->SetDestination(pBuilding, true);
+}
+
+static bool IsPlanningDiagnosticUnit(TechnoClass* pTechno)
+{
+    if (!pTechno || pTechno->WhatAmI() != AbstractType::Infantry)
+        return false;
+
+    auto const pThis = static_cast<InfantryClass*>(pTechno);
+    return IsCandidateSpy(pThis) || (pThis->Type && pThis->Type->Engineer);
+}
+
+static void LogPlanningAdvance(const char* stage, TechnoClass* pTechno, int result)
+{
+    if (!IsPlanningDiagnosticUnit(pTechno))
+        return;
+
+    auto const pFoot = static_cast<FootClass*>(pTechno);
+    auto const pToken = pTechno->PlanningToken;
+    VAMP_LOG(
+        "Planning advance: stage=%s this=%p result=%d current=%d queued=%d target=%p destination=%p token=%p nodes=%d flags=%d,%d,%d,%d path=%d waypoint=%d nav=%d",
+        stage,
+        pTechno,
+        result,
+        static_cast<int>(pTechno->CurrentMission),
+        static_cast<int>(pTechno->QueuedMission),
+        pTechno->Target,
+        pFoot->Destination,
+        pToken,
+        pToken ? pToken->PlanningNodes.Count : 0,
+        pToken ? pToken->field_1C : 0,
+        pToken ? pToken->field_1D : 0,
+        pToken ? pToken->field_98 : 0,
+        pToken ? pToken->field_99 : 0,
+        pFoot->PlanningPathIdx,
+        pFoot->WaypointIndex,
+        pFoot->NavQueue.Count);
+}
+
+// ===========================================================================
+// 规划路径推进诊断。节点消费前还会建立已授权的最终 Capture 目标。
+// ===========================================================================
+DEFINE_HOOK(0x709A40, TechnoClass_ProceedToNextPlanningWaypoint_Log, 0x9)
+{
+    GET(TechnoClass*, pThis, ECX);
+    LogPlanningAdvance("ProceedToNextPlanningWaypoint", pThis, -1);
+    return 0;
+}
+
+DEFINE_HOOK(0x709A63, TechnoClass_RefreshMegaMission_Log, 0x6)
+{
+    GET(TechnoClass*, pThis, ESI);
+    LogPlanningAdvance("RefreshMegaMission", pThis, R->AL());
+    return 0;
+}
+
+DEFINE_HOOK(0x709A71, TechnoClass_CanUseWaypoint_Log, 0x6)
+{
+    GET(TechnoClass*, pThis, ESI);
+    LogPlanningAdvance("CanUseWaypoint", pThis, R->AL());
+    return 0;
+}
+
+DEFINE_HOOK(0x6385C0, TechnoClass_TryNextPlanningTokenNode_Log, 0x6)
+{
+    GET(TechnoClass*, pThis, ECX);
+    if (IsPlanningDiagnosticUnit(pThis))
+    {
+        AuthorizeSpySelfStealPlanningPath(static_cast<FootClass*>(pThis));
+        PrepareSpySelfStealFinalPlanningNode(static_cast<FootClass*>(pThis));
+    }
+    LogPlanningAdvance("TryNextPlanningTokenNode", pThis, -1);
+    return 0;
+}
+
+// ===========================================================================
+// 规划 Capture 命令授权
+// 地址: 0x4C7462, 大小: 0x5
+// EDI = 接收命令的 TechnoClass*, ESI = EventClass*。
+// 此时规划事件仍携带 Capture 的目标建筑和实际 waypoint 路径。
+// ===========================================================================
+DEFINE_HOOK(0x4C7462, EventClass_Execute_MegaMission_AuthorizeSpySelfStealPath, 0x5)
+{
+    GET(TechnoClass*, pTechno, EDI);
+    GET(EventClass*, pEvent, ESI);
+
+    if (!pTechno || pTechno->WhatAmI() != AbstractType::Infantry)
+        return 0;
+
+    auto const pThis = static_cast<InfantryClass*>(pTechno);
+    if (!IsCandidateSpy(pThis))
+        return 0;
+
+    if (!pEvent
+        || static_cast<Mission>(pEvent->MegaMission.Mission) != Mission::Capture
+        || !pEvent->MegaMission.IsPlanningEvent
+        || !pThis->PlanningToken
+        || !pThis->Owner
+        || pThis->PlanningPathIdx < 0
+        || pThis->PlanningPathIdx >= 12)
+        return 0;
+
+    auto const pPath = pThis->Owner->PlanningPaths[pThis->PlanningPathIdx];
+    if (!pPath || pPath->Waypoints.Count <= 0)
+        return 0;
+
+    auto const asBuilding = reinterpret_cast<BuildingClass*(__thiscall*)(TargetClass*)>(0x6E7A80);
+    auto const pBuilding = asBuilding(&pEvent->MegaMission.Target);
+    auto const pDestination = asBuilding(&pEvent->MegaMission.Destination);
+    if (!pBuilding
+        || pBuilding != pDestination
+        || !IsSpySelfStealScenario(pThis, pBuilding))
+        return 0;
+
+    g_SpySelfSteal_AuthorizedInfantry = pThis;
+    g_SpySelfSteal_AuthorizedBuilding = pBuilding;
+    VAMP_LOG("MegaMission: authorized path-only spy self-steal this=%p building=%p path=%d waypoints=%d",
+        pThis,
+        pBuilding,
+        pThis->PlanningPathIdx,
+        pPath->Waypoints.Count);
+
+    return 0;
 }
 
 // ---------------------------------------------------------------------------
@@ -213,9 +412,11 @@ static bool ApplySpySelfStealPowerEffect(InfantryClass* pThis, BuildingClass* pB
 
 static void TriggerSpySelfStealInfiltration(InfantryClass* pThis, BuildingClass* pBuilding)
 {
-    if (!pThis || !pBuilding || !pThis->Owner)
+    if (!pThis || !pBuilding || !pThis->Owner
+        || !IsSpySelfStealAuthorized(pThis, pBuilding))
         return;
 
+    ClearSpySelfStealAuthorization();
     g_SpySelfSteal_Infantry = pThis;
     g_SpySelfSteal_Building = pBuilding;
 
@@ -283,6 +484,13 @@ DEFINE_HOOK(0x51EE4E, InfantryClass_WhatAction_SpySelfSteal, 0x6)
 
     VAMP_LOG("WhatAction: spy self-steal on friendly Spyable building");
 
+    if (g_SpySelfSteal_AuthorizedInfantry == pThis
+        && g_SpySelfSteal_AuthorizedBuilding != pBuilding)
+        ClearSpySelfStealAuthorization();
+
+    g_SpySelfSteal_PendingInfantry = pThis;
+    g_SpySelfSteal_PendingBuilding = pBuilding;
+
     // 跳过 [0xEBE]检查、[0xEC4]检查、IsAlliedWith检查、Spyable检查
     // 直接进入渗透设置：0x51EEED 设置 action=9(Capture) 并计算进入坐标
     return SkipToInfiltrationSetup;
@@ -292,7 +500,8 @@ DEFINE_HOOK(0x51EE4E, InfantryClass_WhatAction_SpySelfSteal, 0x6)
 // 钩子2: FootClass::Mission_Capture 函数入口
 // 地址: 0x4D4B20, 大小: 0x6
 // 此处早于 Phobos 的 0x4D4B43 钩子，ECX 仍是 FootClass* this。
-// 对友方间谍清空规划事件留下的 Destination，再补上 Target 使 Phobos 放行。
+// 此时已到达最后的 Capture 节点，规划字段可能已由路径推进系统清理。
+// 仅消费分派阶段记录的授权，并重新激活 Destination 和 Target 使 Phobos 放行。
 // 原版随后会通过 SetDestination(Target, true) 重新建立 Capture 进入状态。
 // ===========================================================================
 DEFINE_HOOK(0x4D4B20, FootClass_Mission_Capture_PrepareSpySelfSteal, 0x6)
@@ -306,8 +515,11 @@ DEFINE_HOOK(0x4D4B20, FootClass_Mission_Capture_PrepareSpySelfSteal, 0x6)
     if (!IsCandidateSpy(pThis) || pThis->Target)
         return 0;
 
-    auto const pBld = specific_cast<BuildingClass*>(pThis->Destination);
+    auto const pBld = g_SpySelfSteal_AuthorizedBuilding;
     if (!pBld || pBld->IsStrange() || !IsSpySelfStealScenario(pThis, pBld))
+        return 0;
+
+    if (!IsSpySelfStealAuthorized(pThis, pBld))
         return 0;
 
     VAMP_LOG("Mission_Capture prehook: reactivating friendly spy destination before Phobos");
@@ -374,7 +586,8 @@ DEFINE_HOOK(0x51BFD2, InfantryClass_IsCellOccupied_AllowSpySelfStealDestination,
         || pBld->IsStrange()
         || pThis->Target != pBld
         || pThis->Destination != pBld
-        || !IsSpySelfStealScenario(pThis, pBld))
+        || !IsSpySelfStealScenario(pThis, pBld)
+        || !IsSpySelfStealAuthorized(pThis, pBld))
         return 0;
 
     VAMP_LOG("IsCellOccupied: allowing spy self-steal destination cell");
@@ -441,24 +654,18 @@ DEFINE_HOOK(0x519948, InfantryClass_UpdatePosition_LogSpyCaptureMovement, 0xA)
 //   - EDI = pBuilding (BuildingClass*)
 //   - 间谍已到达建筑旁边，通过 0x519948 或原版 CellClass::GetBuilding 解析进入
 //
-// 原版逻辑：加载 Owner 后，在 0x519B5E 读取 [Owner + 0xEC3]
-//   (HouseClass::Side2TechInfiltrated)。若 [0xEC3]==0，跳到 0x519FF8 渗透门；
-//   若 [0xEC3]!=0，落入 0x519B6C 工程师修建筑路径，永远不会触发渗透。
-//   玩家房屋的 [0xEC3] 通常非零，导致间谍自偷场景下 0x519FF8 完全不可达。
+// 原版逻辑：加载 Owner 后，在 0x519B5E 读取 [Owner + 0xEC3]。
+//   非零会落入工程师修建筑路径，绕过原版渗透处理。
 //
 // 我们的逻辑：如果是间谍自偷场景，直接跳到 0x51A002 渗透体（跳过 [0xEC3] 检查、
-//   工程师路径、以及 0x519FF8 的 [0xEC4] 检查）。0x51A002 处的原版代码为：
+//   工程师路径和原版的 [0xEC4] 检查）。0x51A002 处的原版代码为：
 //     mov eax, [esi+0x21c]  ; pThis->Type
 //     mov ecx, edi           ; pBld
 //     push eax
 //     call 0x4571e0          ; BuildingClass::InfiltratedBy(pThis->Type)
 //   ESI/EDI 在此路径中未被破坏，直接可用。
 //
-//   注意：不能跳到 0x519FF8（另一个 DEFINE_HOOK 地址）。Syringe 的 hook-to-hook
-//   跳转不会触发目标钩子，导致 0x519FF8 钩子静默失效。必须直接跳到 0x51A002。
-//
-//   非自偷场景返回 0，Syringe 回放原始 mov 指令，EAX 被正确加载，
-//   后续若 [0xEC3]==0 走原版到 0x519FF8，0x519FF8 钩子仍正常工作。
+//   非自偷场景返回 0，Syringe 回放原始 mov 指令，保持原版后续路径。
 // ===========================================================================
 DEFINE_HOOK(0x519B58, InfantryClass_UpdatePosition_SpySelfSteal_SkipEngineerPath, 0x6)
 {
@@ -467,62 +674,14 @@ DEFINE_HOOK(0x519B58, InfantryClass_UpdatePosition_SpySelfSteal_SkipEngineerPath
     GET(InfantryClass*, pThis, ESI);
     GET(BuildingClass*, pBuilding, EDI);
 
-    if (!IsSpySelfStealScenario(pThis, pBuilding))
+    if (!IsSpySelfStealScenario(pThis, pBuilding)
+        || !IsSpySelfStealAuthorized(pThis, pBuilding))
         return 0;
 
     // 保存上下文供 InfiltratedBy 钩子使用
     VAMP_LOG("UpdatePosition: spy self-steal, triggering infiltration (skip engineer path)");
     TriggerSpySelfStealInfiltration(pThis, pBuilding);
 
-    return ContinueAfterInfiltration;
-}
-
-// ===========================================================================
-// 钩子3b: InfantryClass::UpdatePosition 最终渗透门
-// 地址: 0x519FF8, 大小: 0xA
-// 原始指令:
-//   0x519FF8: mov cl, [eax + 0xEC4]
-//   0x519FFE: test cl, cl
-//   0x51A000: je 0x51A03E  (如果 Owner->[0xEC4]==0 则跳过渗透)
-//
-// 到达此钩子时：
-//   - ESI = pThis (InfantryClass*)
-//   - EDI = pBuilding (BuildingClass*)
-//   - 间谍已到达建筑旁边
-//
-// 原始逻辑：检查 Owner->[0xEC4]，如果为0则跳过渗透(跳到0x51A03E)
-//   [0xEC4] 决定了 WhatAction 中检查 Spyable 还是 ClickRepairable
-//   如果 [0xEC4]==0，即使建筑是 Spyable，渗透也不会触发
-//
-// 我们的逻辑：如果是间谍自偷场景，跳过 je 指令，继续执行渗透
-//   注意：从 0x519B58 跳转过来时 EAX 未被加载，但自偷场景下直接返回
-//   0x51A002，跳过 [eax + 0xEC4] 读取，EAX 值无关。
-// ===========================================================================
-DEFINE_HOOK(0x519FF8, InfantryClass_UpdatePosition_SpySelfSteal, 0xA)
-{
-    enum { ContinueAfterInfiltration = 0x51A010 };
-
-    GET(InfantryClass*, pThis, ESI);
-    GET(BuildingClass*, pBuilding, EDI);
-
-    if (IsCandidateSpy(pThis))
-    {
-        VAMP_LOG("UpdatePosition EC4 check: this=%p building=%p scenario=%d",
-            pThis,
-            pBuilding,
-            IsSpySelfStealScenario(pThis, pBuilding) ? 1 : 0);
-    }
-
-    if (!IsSpySelfStealScenario(pThis, pBuilding))
-        return 0; // 非自偷场景，执行原始代码
-
-    // 保存上下文供 InfiltratedBy 钩子使用
-    VAMP_LOG("UpdatePosition: spy self-steal, triggering infiltration");
-    TriggerSpySelfStealInfiltration(pThis, pBuilding);
-
-    // 跳过 je 0x51A03E，继续执行：
-    //   0x51A002: mov eax, [esi+0x21c]  (pThis->Type)
-    //   0x51A00A: call 0x4571E0         (BuildingClass::InfiltratedBy)
     return ContinueAfterInfiltration;
 }
 
