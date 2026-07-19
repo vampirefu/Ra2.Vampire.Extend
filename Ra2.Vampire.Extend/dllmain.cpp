@@ -242,20 +242,6 @@ DEFINE_HOOK(0x709A40, TechnoClass_ProceedToNextPlanningWaypoint_Log, 0x9)
     return 0;
 }
 
-DEFINE_HOOK(0x709A63, TechnoClass_RefreshMegaMission_Log, 0x6)
-{
-    GET(TechnoClass*, pThis, ESI);
-    LogPlanningAdvance("RefreshMegaMission", pThis, R->AL());
-    return 0;
-}
-
-DEFINE_HOOK(0x709A71, TechnoClass_CanUseWaypoint_Log, 0x6)
-{
-    GET(TechnoClass*, pThis, ESI);
-    LogPlanningAdvance("CanUseWaypoint", pThis, R->AL());
-    return 0;
-}
-
 DEFINE_HOOK(0x6385C0, TechnoClass_TryNextPlanningTokenNode_Log, 0x6)
 {
     GET(TechnoClass*, pThis, ECX);

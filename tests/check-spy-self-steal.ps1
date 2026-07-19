@@ -418,11 +418,8 @@ foreach ($pattern in @(
     }
 }
 
-foreach ($address in @('0x4D4B43', '0x519D53', '0x709A40', '0x709A63', '0x709A71', '0x6385C0')) {
+foreach ($address in @('0x4D4B43', '0x519D53', '0x709A63', '0x709A71')) {
     if ($source -match "DEFINE_HOOK\($address,") {
-        if ($address -in @('0x709A40', '0x709A63', '0x709A71', '0x6385C0')) {
-            continue
-        }
         throw "Experimental or diagnostic hook must be removed from final build: $address"
     }
 }
@@ -439,8 +436,6 @@ Assert-Contains `
 
 foreach ($diagnostic in @(
     @{ Address = '0x709A40'; Name = 'TechnoClass_ProceedToNextPlanningWaypoint_Log'; Size = '0x9'; Register = 'ECX'; Stage = 'ProceedToNextPlanningWaypoint' },
-    @{ Address = '0x709A63'; Name = 'TechnoClass_RefreshMegaMission_Log'; Size = '0x6'; Register = 'ESI'; Stage = 'RefreshMegaMission' },
-    @{ Address = '0x709A71'; Name = 'TechnoClass_CanUseWaypoint_Log'; Size = '0x6'; Register = 'ESI'; Stage = 'CanUseWaypoint' },
     @{ Address = '0x6385C0'; Name = 'TechnoClass_TryNextPlanningTokenNode_Log'; Size = '0x6'; Register = 'ECX'; Stage = 'TryNextPlanningTokenNode' }
 )) {
     Assert-Contains `
