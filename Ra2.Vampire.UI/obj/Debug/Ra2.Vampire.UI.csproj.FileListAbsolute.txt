@@ -1,0 +1,16 @@
+E:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.csproj.AssemblyReference.cache
+E:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.Properties.Resources.resources
+E:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.csproj.GenerateResource.cache
+E:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.csproj.CoreCompileInputs.cache
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\MainWindow.g.cs
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI_MarkupCompile.cache
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI_MarkupCompile.lref
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\bin\Debug\Ra2.Vampire.UI.exe.config
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\bin\Debug\Ra2.Vampire.UI.exe
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\bin\Debug\Ra2.Vampire.UI.pdb
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\App.g.cs
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\App.baml
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\MainWindow.baml
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.g.resources
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.exe
+e:\WorkSpace\cncnet\Ra2.Vampire.Extend\Ra2.Vampire.UI\obj\Debug\Ra2.Vampire.UI.pdb
