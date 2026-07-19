@@ -8,3 +8,7 @@
 /bin/Release
 /.serena
 /.vs/Ra2.Vampire.Extend
+/Ra2.Vampire.UI/bin
+/Ra2.Vampire.UI/obj
+/Ra2.Vampire.UI/Ra2.Vampire.UI.csproj.user
+/Ra2.Vampire.UI
