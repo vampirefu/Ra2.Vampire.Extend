@@ -88,6 +88,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="VampireConfig.cpp" />
+    <ClCompile Include="SpySelfSteal.cpp" />
+    <ClCompile Include="ChronoAirWall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VampireLog.h" />
+    <ClInclude Include="VampireConfig.h" />
+    <ClInclude Include="SpySelfSteal.h" />
+    <ClInclude Include="ChronoAirWall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

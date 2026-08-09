@@ -6,6 +6,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ra2.Vampire.Extend", "Ra2.V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ra2.Vampire.UI", "Ra2.Vampire.UI\Ra2.Vampire.UI.csproj", "{1F88D945-74E4-41B7-9E2A-AC7E802AA0E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ra2.Vampire.Config", "Ra2.Vampire.Config\Ra2.Vampire.Config.csproj", "{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,14 @@ Global
 		{1F88D945-74E4-41B7-9E2A-AC7E802AA0E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F88D945-74E4-41B7-9E2A-AC7E802AA0E3}.Release|Win32.ActiveCfg = Release|Any CPU
 		{1F88D945-74E4-41B7-9E2A-AC7E802AA0E3}.Release|Win32.Build.0 = Release|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Debug|Win32.Build.0 = Debug|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Release|Win32.ActiveCfg = Release|Any CPU
+		{2C7B9A3F-8E5D-4F1A-9B6C-3D2E1F0A8B7C}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

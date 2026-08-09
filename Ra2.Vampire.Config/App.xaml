@@ -1,0 +1,248 @@
+<Application x:Class="Ra2.Vampire.Config.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Ra2.Vampire.Config"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- 尤里复仇主题色 -->
+            <Color x:Key="YuriPurple">#FF6A0DAD</Color>
+            <Color x:Key="YuriPurpleDark">#FF3D0066</Color>
+            <Color x:Key="YuriPurpleLight">#FFB048E8</Color>
+            <Color x:Key="SovietRed">#FFD0021B</Color>
+            <Color x:Key="SovietRedDark">#FF7A0010</Color>
+            <Color x:Key="AlliedBlue">#FF1E90FF</Color>
+            <Color x:Key="WarnYellow">#FFFFC700</Color>
+            <Color x:Key="BgDark">#FF0A0A12</Color>
+            <Color x:Key="BgPanel">#FF141420</Color>
+
+            <SolidColorBrush x:Key="YuriPurpleBrush" Color="{StaticResource YuriPurple}"/>
+            <SolidColorBrush x:Key="YuriPurpleDarkBrush" Color="{StaticResource YuriPurpleDark}"/>
+            <SolidColorBrush x:Key="YuriPurpleLightBrush" Color="{StaticResource YuriPurpleLight}"/>
+            <SolidColorBrush x:Key="SovietRedBrush" Color="{StaticResource SovietRed}"/>
+            <SolidColorBrush x:Key="SovietRedDarkBrush" Color="{StaticResource SovietRedDark}"/>
+            <SolidColorBrush x:Key="AlliedBlueBrush" Color="{StaticResource AlliedBlue}"/>
+            <SolidColorBrush x:Key="WarnYellowBrush" Color="{StaticResource WarnYellow}"/>
+            <SolidColorBrush x:Key="BgDarkBrush" Color="{StaticResource BgDark}"/>
+            <SolidColorBrush x:Key="BgPanelBrush" Color="{StaticResource BgPanel}"/>
+            <SolidColorBrush x:Key="TextBrush" Color="#FFE8E8F0"/>
+            <SolidColorBrush x:Key="TextDimBrush" Color="#FF9090A0"/>
+
+            <!-- 开关动画缓动函数 -->
+            <BackEase x:Key="ToggleEase" Amplitude="0.45" EasingMode="EaseOut"/>
+            <ElasticEase x:Key="ToggleThumbEase" EasingMode="EaseOut" Oscillations="1" Springiness="8"/>
+
+            <!-- 尤里主题炫酷开关样式（滑动 + 发光 + 回弹缩放） -->
+            <Style x:Key="YuriToggle" TargetType="CheckBox">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <Grid Width="62" Height="30">
+                                <Border x:Name="Track" Width="56" Height="26" CornerRadius="13"
+                                        Background="#FF1A1A2E" BorderBrush="#66B048E8" BorderThickness="1.5"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect x:Name="TrackGlow" Color="#FF6A0DAD"
+                                                          BlurRadius="6" ShadowDepth="0" Opacity="0.35"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border x:Name="Thumb" Width="20" Height="20" CornerRadius="10"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0"
+                                        Background="#FFB048E8" RenderTransformOrigin="0.5,0.5">
+                                    <Border.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform x:Name="ThumbTranslate" X="0"/>
+                                            <ScaleTransform x:Name="ThumbScale" ScaleX="1" ScaleY="1"/>
+                                        </TransformGroup>
+                                    </Border.RenderTransform>
+                                    <Border.Effect>
+                                        <DropShadowEffect x:Name="ThumbGlow" Color="#FFB048E8"
+                                                          BlurRadius="9" ShadowDepth="0" Opacity="0.85"/>
+                                    </Border.Effect>
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="Track" Property="Background" Value="#FF3D0066"/>
+                                    <Setter TargetName="Track" Property="BorderBrush" Value="#FFB048E8"/>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ThumbTranslate"
+                                                                 Storyboard.TargetProperty="X"
+                                                                 To="28" Duration="0:0:0.42"
+                                                                 EasingFunction="{StaticResource ToggleEase}"/>
+                                                <DoubleAnimation Storyboard.TargetName="TrackGlow"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="18" Duration="0:0:0.3"/>
+                                                <DoubleAnimation Storyboard.TargetName="TrackGlow"
+                                                                 Storyboard.TargetProperty="Opacity"
+                                                                 To="0.9" Duration="0:0:0.3"/>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ThumbScale"
+                                                                               Storyboard.TargetProperty="ScaleX">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="1.25"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.42" Value="1.0"
+                                                                          EasingFunction="{StaticResource ToggleThumbEase}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ThumbScale"
+                                                                               Storyboard.TargetProperty="ScaleY">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="1.25"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.42" Value="1.0"
+                                                                          EasingFunction="{StaticResource ToggleThumbEase}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ThumbTranslate"
+                                                                 Storyboard.TargetProperty="X"
+                                                                 To="0" Duration="0:0:0.35"
+                                                                 EasingFunction="{StaticResource ToggleEase}"/>
+                                                <DoubleAnimation Storyboard.TargetName="TrackGlow"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="6" Duration="0:0:0.3"/>
+                                                <DoubleAnimation Storyboard.TargetName="TrackGlow"
+                                                                 Storyboard.TargetProperty="Opacity"
+                                                                 To="0.35" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Thumb" Property="Background" Value="#FFD070FF"/>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ThumbGlow"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="16" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ThumbGlow"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="9" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- 尤里紫色按钮样式 -->
+            <Style x:Key="YuriButton" TargetType="Button">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="Segoe UI, Microsoft YaHei UI"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="bd" CornerRadius="4" BorderThickness="2"
+                                        BorderBrush="{StaticResource YuriPurpleLightBrush}"
+                                        Background="{StaticResource YuriPurpleDarkBrush}">
+                                    <Border.Effect>
+                                        <DropShadowEffect x:Name="bdEffect" Color="{StaticResource YuriPurple}"
+                                                          ShadowDepth="0" BlurRadius="10" Opacity="0.8"/>
+                                    </Border.Effect>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                      Margin="{TemplateBinding Padding}"/>
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="bd" Property="Background" Value="{StaticResource YuriPurpleBrush}"/>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="bdEffect"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="22" Duration="0:0:0.25"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="bdEffect"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="10" Duration="0:0:0.25"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="bd" Property="Background" Value="{StaticResource YuriPurpleLightBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.4"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- 苏联红色按钮样式 -->
+            <Style x:Key="SovietButton" TargetType="Button" BasedOn="{StaticResource YuriButton}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="bd" CornerRadius="4" BorderThickness="2"
+                                        BorderBrush="#FFFF4040"
+                                        Background="{StaticResource SovietRedDarkBrush}">
+                                    <Border.Effect>
+                                        <DropShadowEffect x:Name="bdEffect" Color="{StaticResource SovietRed}"
+                                                          ShadowDepth="0" BlurRadius="10" Opacity="0.8"/>
+                                    </Border.Effect>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                      Margin="{TemplateBinding Padding}"/>
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="bd" Property="Background" Value="{StaticResource SovietRedBrush}"/>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="bdEffect"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="22" Duration="0:0:0.25"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="bdEffect"
+                                                                 Storyboard.TargetProperty="BlurRadius"
+                                                                 To="10" Duration="0:0:0.25"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="bd" Property="Background" Value="#FFFF6060"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
